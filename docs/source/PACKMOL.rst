@@ -144,7 +144,7 @@ The ``molecule.names`` file will use the names when creating the ``.xyz`` file. 
   
 .. note::
 
-	The number of bond coefficient types is not for every bond present in the system, but for every bond type. For example, a bond which contains the same length and force oefficient for two different O-H bonds will be considered the same type. See the :ref:`Examples section <Examples>` for details on bond types.
+	The number of bond coefficient types is not for every bond present in the system, but for every bond type. For example, a bond which contains the same length and force oefficient for two different O-H bonds will be considered the same type. See the :ref:`examples section <Examples>` for details on bond types.
 
 
 5. Create a ``molecule.anglecoeffs`` file with the following contents::
@@ -157,7 +157,7 @@ The ``molecule.names`` file will use the names when creating the ``.xyz`` file. 
 
 .. note::
 	
-	The number of angle coefficient types is not for every angle present in the system, but for every angle type. For example, an angle which contains the same force coefficient and angle for two different C-N-H angles will be considered the same type. See the :ref:`Examples section <Examples>` for details on angle types.
+	The number of angle coefficient types is not for every angle present in the system, but for every angle type. For example, an angle which contains the same force coefficient and angle for two different C-N-H angles will be considered the same type. See the :ref:`examples section <Examples>` for details on angle types.
 
 
 6. Create a ``molecule.dihedralcoeffs`` file with the following contents::
@@ -170,7 +170,7 @@ The ``molecule.names`` file will use the names when creating the ``.xyz`` file. 
 
 .. note:: 
 
-	The number of dihedral coefficient types is not for every dihedral present in the system, but for every dihedral type. For example, a dihedral which contains the same force constant, integer, dihedral angle, and weighing factor for a C-N-C-H dihedral will be sindered the same type. See the :ref:`Examples section <Examples>` for details on dihedral types.
+	The number of dihedral coefficient types is not for every dihedral present in the system, but for every dihedral type. For example, a dihedral which contains the same force constant, integer, dihedral angle, and weighing factor for a C-N-C-H dihedral will be sindered the same type. See the :ref:`examples section <Examples>` for details on dihedral types.
 
 
 7. Create a ``molecule.impropercoeffs`` file with the following contents::
@@ -183,7 +183,7 @@ The ``molecule.names`` file will use the names when creating the ``.xyz`` file. 
 
 .. note::
 
-	The number of improper coefficient types is not for every improper present in the system, but for every improper type. For example, an improper which contains the same force constant and improper angle for a C-N-N-O improper will be considered the same type. See the :ref:`Examples section <Examples>` for details on improper types.
+	The number of improper coefficient types is not for every improper present in the system, but for every improper type. For example, an improper which contains the same force constant and improper angle for a C-N-N-O improper will be considered the same type. See the :ref:`examples section <Examples>` for details on improper types.
 
 .. _Running PACKMOL:
 
