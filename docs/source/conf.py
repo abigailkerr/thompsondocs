@@ -24,7 +24,6 @@ exclude_patterns = []
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_favicon = 'ku.png'
 html_theme = 'sphinx_rtd_theme'
 html_logo = 'TG_logo.png'
 html_theme_options = { 'logo_only': True }
