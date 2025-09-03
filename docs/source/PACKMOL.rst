@@ -8,7 +8,7 @@
 
 PACKMOL creates the necessary pieces for a LAMMPS simulation data file. Users input the relevant force field data and PACKMOL creates the Cartesian system of atom coordinates and formats their relevant force field parameters in a LAMMPS-friendly format. 
 
-.. :note::
+.. note::
 
 	This page is adapted from the My Code Collection PACKMOL documents, written by Dr. Zeke A. Piskulich.
 
