@@ -21,6 +21,7 @@ Contents
    PACKMOL
    MOLDEN
    Developing Molecules for LAMMPS
+   Monthly Status Report (MSR)
    
 
 .. _links:
