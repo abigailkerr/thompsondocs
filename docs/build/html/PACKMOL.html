@@ -1,0 +1,625 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PACKMOL &mdash; Thompson Group Reference Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+    <link rel="shortcut icon" href="_static/ku.png"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MOLDEN" href="MOLDEN.html" />
+    <link rel="prev" title="PyMOL" href="PyMOL.html" />
+    <link href="_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/TG_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Joining%20the%20KU%20Community%20Cluster.html">Joining the KU Community Cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Basic%20Terminal%20Commands.html"> Basic Terminal Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cluster%20Commands.html">Cluster Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyMOL.html"> PyMOL</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"> PACKMOL</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installing-packmol">Installing PACKMOL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#preparing-the-packmol-contents">Preparing the PACKMOL Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-packmol">Running PACKMOL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tip3p-fb-water-model">TIP3P-FB Water Model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#connect-file">Connect File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bond-coefficients-file">Bond Coefficients File</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#methylurea-model">Methylurea Model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id8">Connect File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#angle-coefficiens-file">Angle Coefficiens File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dihedral-coefficients-file">Dihedral Coefficients File</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="MOLDEN.html"> MOLDEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Developing%20Molecules%20for%20LAMMPS.html"> Developing Molecules for LAMMPS</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Thompson Group Reference Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"> PACKMOL</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/PACKMOL.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ico2-packmol">
+<h1><a class="reference external" href="https://m3g.github.io/packmol/"><img alt="ico2" src="_images/packmol.png" style="width: 2.5ex; height: 2.5ex;" /></a> PACKMOL<a class="headerlink" href="#ico2-packmol" title="Link to this heading"></a></h1>
+<p>PACKMOL creates the necessary pieces for a LAMMPS simulation data file. Users input the relevant force field data and PACKMOL creates the Cartesian system of atom coordinates and formats their relevant force field parameters in a LAMMPS-friendly format.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Details on how to create molecules for PACKMOL can be found within the <a class="reference internal" href="Developing%20Molecules%20for%20LAMMPS.html"><span class="doc"> Developing Molecules for LAMMPS</span></a> and <a class="reference internal" href="MOLDEN.html"><span class="doc"> MOLDEN</span></a> docs.</p>
+</div>
+<section id="installing-packmol">
+<span id="id1"></span><h2>Installing PACKMOL<a class="headerlink" href="#installing-packmol" title="Link to this heading"></a></h2>
+<p>To install and successfully run PACKMOL, it is necessary to download the relevant materials to your cluster profile.</p>
+<ol class="arabic">
+<li><p>Download the codes from Zeke’s GitHub:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Choose somewhere safe to keep the codes, such as your <code class="docutils literal notranslate"><span class="pre">home/</span></code> or <code class="docutils literal notranslate"><span class="pre">work/</span></code> directory.</p></li>
+<li><p>Type the following command when you are within the desired location: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/piskuliche/My-Code-Collection.git</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Preparing PACKMOL</p>
+<blockquote>
+<div><ul>
+<li><p>Change the path in the <code class="docutils literal notranslate"><span class="pre">make.sh</span></code> file to the location of the <code class="docutils literal notranslate"><span class="pre">My-Code-Collection/</span></code> directory.</p></li>
+<li><p>Place the files from <code class="docutils literal notranslate"><span class="pre">module/</span></code> to some private directory. This can be done by simply making another directory, known as <code class="docutils literal notranslate"><span class="pre">privatemodules/</span></code> within the same <code class="docutils literal notranslate"><span class="pre">home/</span></code> or <code class="docutils literal notranslate"><span class="pre">work/</span></code> directory as where you placed the <code class="docutils literal notranslate"><span class="pre">My-Code-Collection/</span></code> codes.</p></li>
+<li><p>Within the <code class="docutils literal notranslate"><span class="pre">privatemodules/</span></code> directory, edit each <code class="docutils literal notranslate"><span class="pre">.lua</span></code> file and make the following edits:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Change the path to the following: <code class="docutils literal notranslate"><span class="pre">/pwd/My-Code-Collection/bin/file/</span></code> where <code class="docutils literal notranslate"><span class="pre">pwd</span></code> is the path to the <code class="docutils literal notranslate"><span class="pre">My-Code-Collection/</span></code> contents.</p></li>
+<li><p>Remove each line that loads python from all <code class="docutils literal notranslate"><span class="pre">.lua</span></code> files.</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>Return to your default cluster page (i.e. type <code class="docutils literal notranslate"><span class="pre">cd</span></code>) and edit your bash profile: <code class="docutils literal notranslate"><span class="pre">vi</span> <span class="pre">.bash_profile</span></code>. Within it, type the following: <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">use</span> <span class="pre">/owd/private_mod_dir_name</span></code> where <code class="docutils literal notranslate"><span class="pre">pwd</span></code> is the path to the <code class="docutils literal notranslate"><span class="pre">privatemodules</span></code> directory.</p></li>
+<li><p>Source the profile <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">.bash_profile</span></code> (and logout/in).</p></li>
+<li><p>Edit the <code class="docutils literal notranslate"><span class="pre">build.py</span></code> code by completing the following steps:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">My-Code-Collection/bin/build/</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vi</span> <span class="pre">build.py</span></code></p></li>
+<li><p>Change <strong>line 606</strong> to: <code class="docutils literal notranslate"><span class="pre">subprocess.call([&quot;/kuhpc/work/thompson/e497b540/packmol/packmol</span> <span class="pre">&lt;</span> <span class="pre">system.pmol</span> <span class="pre">&gt;</span> <span class="pre">packmol.output&quot;],</span> <span class="pre">shell=True)</span></code>.</p></li>
+</ol>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>When you are ready to use <code class="docutils literal notranslate"><span class="pre">build.py</span></code>, you <strong>must</strong> type <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">build</span></code>. It is recommended that you do this within your bash profile if you are routinely building PACKMOL contents. This can be done similarly to the edits for the bash profile in Step 1.</p></li>
+</ol>
+</section>
+<section id="preparing-the-packmol-contents">
+<span id="id2"></span><h2>Preparing the PACKMOL Contents<a class="headerlink" href="#preparing-the-packmol-contents" title="Link to this heading"></a></h2>
+<p>PACKMOL input files are incredibly detailed and specific in order to yield a desired molecule. Unlike LAMMPS, PACKMOL insists on every discrete parameter as well as every type of parameter to be listed from a given set of force field contents. Details on the format and structure of the relevant PACKMOL files are shown blow.</p>
+<ol class="arabic">
+<li><p>Create a connectivity file (similar in appearance to a LAMMPS data file) with the name <code class="docutils literal notranslate"><span class="pre">molecule.connect</span></code> where <code class="docutils literal notranslate"><span class="pre">molecule</span></code> is the name of the species you are creating. Edit the file as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># HEADER (optional)</span>
+
+<span class="c1"># atoms</span>
+<span class="c1"># bonds</span>
+<span class="c1"># angles</span>
+<span class="c1"># dihedrals</span>
+<span class="c1"># impropers</span>
+
+<span class="n">Coords</span> <span class="c1"># ALL coordinates must be shown, for all three dimensions, for ALL atoms in the system.</span>
+
+<span class="mi">1</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+<span class="mi">2</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+<span class="n">N</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>           <span class="c1"># where N is the number of atoms in the molecule</span>
+
+<span class="n">Types</span> <span class="c1"># ALL types must be shown, for ALL atoms in the system.</span>
+
+<span class="mi">1</span> <span class="n">atom_number</span>
+<span class="mi">2</span> <span class="n">atom_number</span>
+<span class="n">N</span> <span class="n">atom_number</span>     <span class="c1"># show ALL atoms and their associated types. EVERY atom must be accounted for, where N is the number of atoms in the molecule.</span>
+
+<span class="n">Masses</span> <span class="c1"># ALL masses must be shown, for ALL atoms in the system.</span>
+
+<span class="mi">1</span> <span class="n">atom_mass</span>
+<span class="mi">2</span> <span class="n">atom_mass</span>
+<span class="n">N</span> <span class="n">atom_mass</span>       <span class="c1"># show ALL atoms and their associated masses, for 1-N atoms.</span>
+
+<span class="n">Bonds</span> <span class="c1"># ALL bonds must be shown, for ALL atoms in the system.</span>
+
+<span class="mi">1</span> <span class="n">bond_type_number</span> <span class="n">atom1</span> <span class="n">atom2</span>
+<span class="mi">2</span> <span class="n">bond_type_number</span> <span class="n">atom1</span> <span class="n">atom2</span>
+<span class="n">NB</span> <span class="n">bond_type_number</span> <span class="n">atom1</span> <span class="n">atom2</span> <span class="c1"># show ALL bonds with their associated bond type number and associated atoms.</span>
+
+<span class="n">Angles</span> <span class="c1"># ALL angles must be shown, for ALL atoms in the system.</span>
+
+<span class="mi">1</span> <span class="n">angle_type_number</span> <span class="n">atom1</span> <span class="n">atom2</span> <span class="n">atom3</span>
+<span class="mi">2</span> <span class="n">angle_type_number</span> <span class="n">atom1</span> <span class="n">atom2</span> <span class="n">atom3</span> <span class="c1"># atom2 is the central atom for the angle</span>
+<span class="n">NA</span> <span class="n">angle_type_number</span> <span class="n">atom1</span> <span class="n">atom2</span> <span class="n">atom3</span> <span class="c1"># show ALL angles with their associated angle type number and atoms.</span>
+
+<span class="n">Dihedrals</span> <span class="c1"># ALL dihedrals must be shown, for ALL atoms in the system</span>
+
+<span class="mi">1</span> <span class="n">dihedral_type_num</span> <span class="n">atom1</span> <span class="n">atom2</span> <span class="n">atom3</span> <span class="n">atom4</span>
+<span class="mi">2</span> <span class="n">dihedral_type_num</span> <span class="n">atom1</span> <span class="n">atom2</span> <span class="n">atom3</span> <span class="n">atom4</span> <span class="c1"># where atom2 and atom3 are the central atoms</span>
+<span class="n">ND</span> <span class="n">dihedral_type_num</span> <span class="n">atom1</span> <span class="n">atom2</span> <span class="n">atom3</span> <span class="n">atom4</span> <span class="c1"># show ALL dihedrals with their associated type number and atoms.</span>
+
+<span class="n">Impropers</span>
+
+<span class="mi">1</span> <span class="n">improper_type_num</span> <span class="n">atom1</span> <span class="n">atom2</span> <span class="n">atom3</span> <span class="n">atom4</span>
+<span class="mi">2</span> <span class="n">improper_type_num</span> <span class="n">atom1</span> <span class="n">atom2</span> <span class="n">atom3</span> <span class="n">atom4</span> <span class="c1"># where atom1 is the central atom</span>
+<span class="n">NI</span> <span class="n">improper_type_num</span> <span class="n">atom1</span> <span class="n">atom2</span> <span class="n">atom3</span> <span class="n">atom4</span> <span class="c1"># show all relevant impropers (by this point all other contributions should relieve you from finding all impropers) with their associated type number and atoms.</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All headers for <code class="docutils literal notranslate"><span class="pre">Coords</span></code>, <code class="docutils literal notranslate"><span class="pre">Types</span></code>, <code class="docutils literal notranslate"><span class="pre">Bonds</span></code>, etc. require a blank line prior and following for correct formatting. For molecules that do not contain the aforementioned qualities can have their associated sections blank. Molecules without any aforementioned qualities do not need associated files (see below). The sections which do not apply to the molecule being built can be ignored. However, it is important to read the <a class="reference internal" href="#examples"><span class="std std-ref">Examples section</span></a> for details on each file used in PACKMOL.</p>
+</div>
+</li>
+<li><p>Create a <code class="docutils literal notranslate"><span class="pre">molecule.names</span></code> file with the following contents:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="n">Element</span><span class="c1">#</span>
+<span class="mi">2</span> <span class="n">Element</span><span class="c1">#</span>
+<span class="n">N</span> <span class="n">Element</span><span class="c1">#      # N = number of atoms &amp; Element# = the name of the element for the .xyz file.</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="n">H1</span>
+<span class="mi">2</span> <span class="n">O1</span>
+<span class="mi">3</span> <span class="n">H2</span> <span class="c1"># for a water molecule</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">molecule.names</span></code> file will use the names when creating the <code class="docutils literal notranslate"><span class="pre">.xyz</span></code> file. This is used for every atom present in the system and requires unique names for each atom.</p>
+<ol class="arabic" start="3">
+<li><p>Create a <code class="docutils literal notranslate"><span class="pre">molecule.paircoeffs</span></code> file with the following contents:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pair_coeff</span> <span class="mi">1</span> <span class="mi">1</span> <span class="n">epsilon</span> <span class="n">sigma</span>
+<span class="n">pair_coeff</span> <span class="mi">2</span> <span class="mi">2</span> <span class="n">epsilon</span> <span class="n">sigma</span>
+<span class="n">pair_coeff</span> <span class="n">NP</span> <span class="n">NP</span> <span class="n">epsilon</span> <span class="n">sigma</span>  <span class="c1"># where NP is the number of pair coefficient types.</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The number of pair coefficient types is not for every atom in the system, but for every atom type. For example, for a system with 11 atoms and 6 atom types will have 6 pair coefficient types.</p>
+</div>
+<ol class="arabic" start="4">
+<li><p>Create a <code class="docutils literal notranslate"><span class="pre">molecule.bondcoeffs</span></code> file with the following contents:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bond_coeff</span> <span class="mi">1</span> <span class="n">k</span> <span class="n">r</span>
+<span class="n">bond_coeff</span> <span class="mi">2</span> <span class="n">k</span> <span class="n">r</span> <span class="c1"># k = force const &amp; r = bond length</span>
+<span class="n">bond_coeff</span> <span class="n">NBT</span> <span class="n">k</span> <span class="n">r</span> <span class="c1"># NBT = number of bond types</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The number of bond coefficient types is not for every bond present in the system, but for every bond type. For example, a bond which contains the same length and force oefficient for two different O-H bonds will be considered the same type. See the <a class="reference internal" href="#examples"><span class="std std-ref">Examples section</span></a> for details on bond types.</p>
+</div>
+<ol class="arabic" start="5">
+<li><p>Create a <code class="docutils literal notranslate"><span class="pre">molecule.anglecoeffs</span></code> file with the following contents:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">angle_coeff</span> <span class="mi">1</span> <span class="n">k</span> <span class="n">theta</span>
+<span class="n">angle_coeff</span> <span class="mi">2</span> <span class="n">k</span> <span class="n">theta</span> <span class="c1"># k = force const &amp; theta = angle</span>
+<span class="n">angle_coeff</span> <span class="n">NAT</span> <span class="n">k</span> <span class="n">theta</span> <span class="c1"># NAT = number of angle types</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The number of angle coefficient types is not for every angle present in the system, but for every angle type. For example, an angle which contains the same force coefficient and angle for two different C-N-H angles will be considered the same type. See the <a class="reference internal" href="#examples"><span class="std std-ref">Examples section</span></a> for details on angle types.</p>
+</div>
+<ol class="arabic" start="6">
+<li><p>Create a <code class="docutils literal notranslate"><span class="pre">molecule.dihedralcoeffs</span></code> file with the following contents:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dihedral_coeff</span> <span class="mi">1</span> <span class="n">k</span> <span class="n">n</span> <span class="n">d</span> <span class="n">w</span>
+<span class="n">dihedral_coeff</span> <span class="mi">2</span> <span class="n">k</span> <span class="n">n</span> <span class="n">d</span> <span class="n">w</span> <span class="c1"># k = force const &amp; n = int &amp; d = dihedral angle &amp; w = weighing factor</span>
+<span class="n">dihedral_coeff</span> <span class="n">NDT</span> <span class="n">k</span> <span class="n">n</span> <span class="n">d</span> <span class="n">w</span> <span class="c1"># NDT = number of dihedral types</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The number of dihedral coefficient types is not for every dihedral present in the system, but for every dihedral type. For example, a dihedral which contains the same force constant, integer, dihedral angle, and weighing factor for a C-N-C-H dihedral will be sindered the same type. See the <a class="reference internal" href="#examples"><span class="std std-ref">Examples section</span></a> for details on dihedral types.</p>
+</div>
+<ol class="arabic" start="7">
+<li><p>Create a <code class="docutils literal notranslate"><span class="pre">molecule.impropercoeffs</span></code> file with the following contents:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">improper_coeff</span> <span class="mi">1</span> <span class="n">k</span> <span class="n">X</span>
+<span class="n">improper_coeff</span> <span class="mi">2</span> <span class="n">k</span> <span class="n">X</span> <span class="c1"># k = force const &amp; X = improper angle</span>
+<span class="n">improper_coeff</span> <span class="n">NIT</span> <span class="n">k</span> <span class="n">X</span> <span class="c1"># NIT = number of improper types</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The number of improper coefficient types is not for every improper present in the system, but for every improper type. For example, an improper which contains the same force constant and improper angle for a C-N-N-O improper will be considered the same type. See the <a class="reference internal" href="#examples"><span class="std std-ref">Examples section</span></a> for details on improper types.</p>
+</div>
+</section>
+<section id="running-packmol">
+<span id="id3"></span><h2>Running PACKMOL<a class="headerlink" href="#running-packmol" title="Link to this heading"></a></h2>
+<ul>
+<li><p>To run the PACKMOL system from the aforementioned configuration files, use the command <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">molec_generator.py</span> <span class="pre">input</span> <span class="pre">output</span> <span class="pre">molname</span></code>.  For example: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">molec_generator.py</span> <span class="pre">spce.connect</span> <span class="pre">spce.py</span> <span class="pre">spce</span></code>. The <code class="docutils literal notranslate"><span class="pre">.connect</span></code> file is required, and <code class="docutils literal notranslate"><span class="pre">molec_generator.py</span></code> creates the Python file, <code class="docutils literal notranslate"><span class="pre">moleculename.py</span></code> automatically.</p></li>
+<li><p>Once the <code class="docutils literal notranslate"><span class="pre">.py</span></code> file is created, it is required to copy the file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cp</span> <span class="n">molecule</span><span class="o">.</span><span class="n">py</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">My</span><span class="o">-</span><span class="n">Code</span><span class="o">-</span><span class="n">Collection</span><span class="o">/</span><span class="n">Util</span><span class="o">/</span><span class="n">general_system</span><span class="o">/</span><span class="n">molecules</span><span class="o">/</span><span class="n">molecule</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</li>
+<li><p>Prior to building, a <code class="docutils literal notranslate"><span class="pre">molecule.inp</span></code> file must be created in the following specific format:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;num_components&quot;</span><span class="p">:</span><span class="c1">#,</span>
+<span class="s2">&quot;nspec&quot;</span><span class="p">:[</span><span class="c1">#, etc.],</span>
+<span class="s2">&quot;tspec&quot;</span><span class="p">:[</span><span class="s2">&quot;name (without .py)&quot;</span><span class="p">,</span> <span class="n">etc</span><span class="o">.</span><span class="p">],</span>
+<span class="s2">&quot;blength&quot;</span><span class="p">:</span><span class="c1">#,</span>
+<span class="s2">&quot;e_unit&quot;</span><span class="p">:[</span><span class="s2">&quot;kcal&quot;</span><span class="p">,</span> <span class="n">etc</span><span class="o">.</span><span class="p">],</span>
+<span class="s2">&quot;f_unit&quot;</span><span class="p">:[</span><span class="s2">&quot;kcal&quot;</span><span class="p">,</span> <span class="n">etc</span><span class="o">.</span><span class="p">],</span>
+<span class="s2">&quot;eo_unit&quot;</span><span class="p">:[</span><span class="s2">&quot;kcal&quot;</span><span class="p">,</span> <span class="n">etc</span><span class="o">.</span><span class="p">],</span>
+<span class="s2">&quot;fo_unit&quot;</span><span class="p">:[</span><span class="s2">&quot;kcal&quot;</span><span class="p">,</span> <span class="n">etc</span><span class="o">.</span><span class="p">],</span>
+<span class="s2">&quot;shift_f&quot;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
+<span class="s2">&quot;ff_type&quot;</span><span class="p">:[</span><span class="s2">&quot;lj&quot;</span><span class="p">,</span> <span class="n">etc</span><span class="o">.</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Only one <code class="docutils literal notranslate"><span class="pre">.inp</span></code> file is made per system. For example, a 4M urea and water system will be formatted with the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;num_components&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+<span class="s2">&quot;nspec&quot;</span><span class="p">:[</span><span class="mi">330</span><span class="p">,</span> <span class="mi">14</span><span class="p">],</span>
+<span class="s2">&quot;tspec&quot;</span><span class="p">:[</span><span class="s2">&quot;tip3p-fb&quot;</span><span class="p">,</span> <span class="s2">&quot;urea&quot;</span><span class="p">],</span>
+<span class="s2">&quot;blength&quot;</span><span class="p">:</span><span class="mf">22.5378973</span><span class="p">,</span>
+<span class="s2">&quot;e_unit&quot;</span><span class="p">:[</span><span class="s2">&quot;kcal&quot;</span><span class="p">,</span> <span class="s2">&quot;kcal&quot;</span><span class="p">],</span>
+<span class="s2">&quot;f_unit&quot;</span><span class="p">:[</span><span class="s2">&quot;kcal&quot;</span><span class="p">,</span> <span class="s2">&quot;kcal&quot;</span><span class="p">],</span>
+<span class="s2">&quot;eo_unit&quot;</span><span class="p">:[</span><span class="s2">&quot;kcal&quot;</span><span class="p">,</span> <span class="s2">&quot;kcal&quot;</span><span class="p">],</span>
+<span class="s2">&quot;fo_unit&quot;</span><span class="p">:[</span><span class="s2">&quot;kcal&quot;</span><span class="p">,</span> <span class="s2">&quot;kcal&quot;</span><span class="p">],</span>
+<span class="s2">&quot;shift_f&quot;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
+<span class="s2">&quot;ff_type&quot;</span><span class="p">:[</span><span class="s2">&quot;lj&quot;</span><span class="p">,</span> <span class="s2">&quot;lj&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul>
+<li><p>To build the molecule, do so within the path which contains the <code class="docutils literal notranslate"><span class="pre">molecule.inp</span></code> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">module</span> <span class="n">load</span> <span class="n">build</span>
+<span class="o">&gt;</span> <span class="n">build</span><span class="o">.</span><span class="n">py</span> <span class="o">&lt;</span> <span class="n">filename</span><span class="o">.</span><span class="n">inp</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>PACKMOL will automatically create several files which contain information for a LAMMPS simulation. The <code class="docutils literal notranslate"><span class="pre">data.lmps</span></code> file can simply be copied for the future LAMMPS simulation used.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is <strong>required</strong> to have the arrow in the command <code class="docutils literal notranslate"><span class="pre">build.py</span> <span class="pre">&lt;</span> <span class="pre">filename.inp</span></code> facing the <code class="docutils literal notranslate"><span class="pre">build.py</span></code> file. If this direction is mirrored, you <strong>will</strong> lose your <code class="docutils literal notranslate"><span class="pre">.inp</span></code> file and the PACKMOL build process <strong>will not work</strong>!</p>
+</div>
+<p>The resulting data from PACKMOL can be used to <code class="docutils literal notranslate"><span class="pre">cat</span></code> into a LAMMPS <code class="docutils literal notranslate"><span class="pre">in.</span></code> file. For example, <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">lmps.*</span> <span class="pre">&gt;&gt;</span> <span class="pre">in.nvt</span></code> will write all the <code class="docutils literal notranslate"><span class="pre">lmps.</span></code> outputs into a file called <code class="docutils literal notranslate"><span class="pre">in.nvt</span></code>. You can edit the file with LAMMPS commands to create the system of interest for an NVT simulation (in this case). For LAMMPS files, <code class="docutils literal notranslate"><span class="pre">in.name</span></code> can be used for NVT, NVE, NpT, among many more types of simulations. Please see the <a class="reference external" href="https://docs.lammps.org">LAMMPS docs</a> for details on how to write and create LAMMPS simulations.</p>
+</section>
+<section id="examples">
+<span id="id4"></span><h2>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
+<p>Examples are shown for a simplistic <a class="reference internal" href="#tip3p-fb-water-model"><span class="std std-ref">water model</span></a> and an asymmetric <a class="reference internal" href="#methylurea-model"><span class="std std-ref">Methylurea model</span></a>.</p>
+<section id="tip3p-fb-water-model">
+<span id="id5"></span><h3>TIP3P-FB Water Model<a class="headerlink" href="#tip3p-fb-water-model" title="Link to this heading"></a></h3>
+<p>Consider a simplistic example of the <a class="reference external" href="https://pubs.acs.org/doi/abs/10.1021/jz500737m">TIP3P-FB</a> water model. The path for this model can be found at <code class="docutils literal notranslate"><span class="pre">kuhpc/thompson/work/a122k651/packmol/tip3p_fb</span></code>.</p>
+<p>The contents are as follows:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">molec_generator.py</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tip3p_fb.anglecoeffs</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tip3p_fb.bondcoeffs</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tip3p_fb.connect</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tip3p_fb.inp</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tip3p_fb.names</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tip3p_fb.paircoeffs</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tip3p_fb.py</span></code></p></li>
+</ol>
+<p>For the sake of simplicity, only the <code class="docutils literal notranslate"><span class="pre">tip3p_fb.connect</span></code> and <code class="docutils literal notranslate"><span class="pre">tip3p_fb.bondcoeffs</span></code> files are shown.</p>
+<section id="connect-file">
+<h4>Connect File<a class="headerlink" href="#connect-file" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># This file is a connectivity file for TIP3P/FB</span>
+<span class="mi">3</span> <span class="n">atoms</span> <span class="c1"># O, H1, H2</span>
+<span class="mi">2</span> <span class="n">bonds</span> <span class="c1"># all bonds, NOT types of bonds</span>
+<span class="mi">1</span> <span class="n">angles</span> <span class="c1"># all angles</span>
+<span class="mi">0</span> <span class="n">dihedrals</span>
+<span class="mi">0</span> <span class="n">impropers</span>
+
+<span class="n">Coords</span>
+
+<span class="mi">1</span>  <span class="mf">0.000000</span>     <span class="mf">0.000000</span>     <span class="mf">0.000000</span> <span class="c1"># O</span>
+<span class="mi">2</span>  <span class="mf">0.000000</span>     <span class="mf">0.000000</span>     <span class="mf">1.011800</span> <span class="c1"># H1</span>
+<span class="mi">3</span>  <span class="mf">0.961457</span>     <span class="mf">0.000000</span>    <span class="o">-</span><span class="mf">0.315182</span> <span class="c1"># H2</span>
+
+<span class="n">Types</span>
+
+<span class="mi">1</span> <span class="mi">1</span> <span class="c1"># Oxygen, atom 1, type 1</span>
+<span class="mi">2</span> <span class="mi">2</span> <span class="c1"># Hydrogen1, atom 2, type 2</span>
+<span class="mi">3</span> <span class="mi">2</span> <span class="c1"># Hydrogen2, atom 3, type 2</span>
+
+<span class="n">Charges</span>
+
+<span class="mi">1</span> <span class="o">-</span><span class="mf">0.84844</span> <span class="c1"># O</span>
+<span class="mi">2</span> <span class="mf">0.42422</span> <span class="c1"># H1</span>
+<span class="mi">3</span> <span class="mf">0.42422</span> <span class="c1"># H2</span>
+
+<span class="n">Masses</span>
+
+<span class="mi">1</span> <span class="mf">15.9990</span> <span class="c1"># O</span>
+<span class="mi">2</span> <span class="mf">1.0080</span> <span class="c1"># H1</span>
+<span class="mi">3</span> <span class="mf">1.0080</span> <span class="c1"># H2</span>
+
+<span class="n">Bonds</span>
+
+<span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">2</span> <span class="c1"># first bond, type 1, O-H1</span>
+<span class="mi">2</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">3</span> <span class="c1"># second bond, type 1, O-H2</span>
+
+<span class="n">Angles</span>
+
+<span class="mi">1</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">1</span> <span class="mi">3</span> <span class="c1"># first angle, type 1, H1-O-H2</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">.connect</span></code> for TIP3P-FB shows several key details:</p>
+<ol class="arabic simple">
+<li><p>The bonds listed within the <code class="docutils literal notranslate"><span class="pre">.connect</span></code> file state there are two bonds present. However, within the <code class="docutils literal notranslate"><span class="pre">Bonds</span></code> subheading, there exists only one <em>type</em> of bond. This key difference is significant once the <code class="docutils literal notranslate"><span class="pre">.bonds</span></code> file is made, which can be seen <a class="reference internal" href="#bond-coefficients-file"><span class="std std-ref">below</span></a>.</p></li>
+<li><p>The two hydrogen atoms are considered the same type. However, within the <code class="docutils literal notranslate"><span class="pre">.connect</span></code> file, their masses are explicitly listed.</p></li>
+<li><p>Sections for <code class="docutils literal notranslate"><span class="pre">Dihedrals</span></code> and <code class="docutils literal notranslate"><span class="pre">Impropers</span></code> are not listed in the <code class="docutils literal notranslate"><span class="pre">.connect</span></code> file. This is further shown in the list of files for the TIP3P-FB water model, where the <code class="docutils literal notranslate"><span class="pre">.dihedralcoeffs</span></code> and <code class="docutils literal notranslate"><span class="pre">.impropercoeffs</span></code> files are not present.</p></li>
+</ol>
+</section>
+<section id="bond-coefficients-file">
+<span id="id6"></span><h4>Bond Coefficients File<a class="headerlink" href="#bond-coefficients-file" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bond_coeff</span> <span class="mi">1</span>   <span class="mf">553.000</span>     <span class="mf">1.0118</span> <span class="c1"># O-H</span>
+</pre></div>
+</div>
+<p>From the <code class="docutils literal notranslate"><span class="pre">.connect</span></code> file, there are <em>two</em> listed bonds in the TIP3P-FB system. However, only one <em>type</em> of bond is defined. This is reflected via the <code class="docutils literal notranslate"><span class="pre">.bondcoeffs</span></code> file, which shows the <em>types</em> of bonds in the system.</p>
+</section>
+</section>
+<section id="methylurea-model">
+<span id="id7"></span><h3>Methylurea Model<a class="headerlink" href="#methylurea-model" title="Link to this heading"></a></h3>
+<p>The methylurea model was developed via <a class="reference external" href="https://cgenff.com/">CGenFF</a> from its structure obtained at <a class="reference external" href="https://pubchem.ncbi.nlm.nih.gov/compound/Methylurea">https://pubchem.ncbi.nlm.nih.gov/compound/Methylurea</a>. The structure is associated from the identifying atom labels given from the CHARMM force field data from CGenFF, which can be seen in the structure below. For details on its development into PACKMOL, see the section <a class="reference internal" href="Developing%20Molecules%20for%20LAMMPS.html"><span class="doc"> Developing Molecules for LAMMPS</span></a>.
+The files shown in the methylurea model are listed (see contents at <code class="docutils literal notranslate"><span class="pre">kuhpc/thompson/work/a122k651/packmol/energy_mins/methylurea/starterfiles_methylurea</span></code>):</p>
+<a class="reference internal image-reference" href="_images/methylurea.png"><img alt="_images/methylurea.png" class="align-right" src="_images/methylurea.png" style="width: 400px;" />
+</a>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">methylurea.anglecoeffs</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">methylurea.connect</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">methylurea.impropercoeffs</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">methylurea.names</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">methylurea.py</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">methylurea.bondcoeffs</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">methylurea.dihedralcoeffs</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">methylurea.inp</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">methylurea.paircoeffs</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">molec_generator.py</span></code></p></li>
+</ol>
+<p>For the sake of simplicity, only the <code class="docutils literal notranslate"><span class="pre">.connect</span></code>, <code class="docutils literal notranslate"><span class="pre">.anglecoeffs</span></code>, and <code class="docutils literal notranslate"><span class="pre">.dihedralcoeffs</span></code> will be shown.</p>
+<section id="id8">
+<h4>Connect File<a class="headerlink" href="#id8" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1-MONOMETHYLUREA SYSTEM</span>
+
+
+<span class="mi">11</span> <span class="n">atoms</span>
+<span class="mi">10</span> <span class="n">bonds</span>
+<span class="mi">15</span> <span class="n">angles</span>
+<span class="mi">8</span> <span class="n">dihedrals</span>
+<span class="mi">1</span> <span class="n">impropers</span>
+
+<span class="n">Coords</span>
+
+<span class="mi">1</span>      <span class="mf">4.637224824258854</span> <span class="mf">3.939505581798852</span> <span class="mf">2.720061084395536</span> <span class="c1"># CG331</span>
+<span class="mi">2</span>      <span class="mf">4.234156216717911</span> <span class="mf">4.221940890505587</span> <span class="mf">4.05802642237323</span> <span class="c1"># NG2S1</span>
+<span class="mi">3</span>      <span class="mf">3.1658553620638044</span> <span class="mf">3.5190398618536536</span> <span class="mf">4.5548357700110875</span> <span class="c1"># CG2O6</span>
+<span class="mi">4</span>      <span class="mf">2.7872392741492495</span> <span class="mf">3.8007105470089186</span> <span class="mf">5.845925212783197</span> <span class="c1"># NG2S2</span>
+<span class="mi">5</span>      <span class="mf">2.582610268034431</span> <span class="mf">2.677395841085764</span> <span class="mf">3.8647055934269243</span> <span class="c1"># OG2D1</span>
+<span class="mi">6</span>      <span class="mf">3.260203074178855</span> <span class="mf">4.483148645078783</span> <span class="mf">6.405233040214911</span> <span class="c1"># HGP1 (AMIDE SIDE)</span>
+<span class="mi">7</span>      <span class="mf">2.011495906975985</span> <span class="mf">3.3125153319773095</span> <span class="mf">6.253272157273618</span> <span class="c1"># HGP1 (AMIDE SIDE)</span>
+<span class="mi">8</span>      <span class="mf">4.75773122119284</span> <span class="mf">4.915999376212109</span> <span class="mf">4.548650471430572</span> <span class="c1"># HGP1 (METHYL SIDE)</span>
+<span class="mi">9</span>      <span class="mf">5.505632660948109</span> <span class="mf">4.569436036834264</span> <span class="mf">2.4390591532339316</span> <span class="c1"># HGA3</span>
+<span class="mi">10</span>     <span class="mf">4.913210613313182</span> <span class="mf">2.8674205690506347</span> <span class="mf">2.6360109369635523</span> <span class="c1"># HGA3</span>
+<span class="mi">11</span>     <span class="mf">3.7921275781667827</span> <span class="mf">4.142204318594125</span> <span class="mf">2.0291791578934393</span> <span class="c1"># HGA3</span>
+
+<span class="n">Types</span>
+
+<span class="mi">1</span> <span class="mi">1</span> <span class="c1"># CG331</span>
+<span class="mi">2</span> <span class="mi">2</span> <span class="c1"># NG2S1</span>
+<span class="mi">3</span> <span class="mi">3</span> <span class="c1"># CG2O6</span>
+<span class="mi">4</span> <span class="mi">4</span> <span class="c1"># NG2S2</span>
+<span class="mi">5</span> <span class="mi">5</span> <span class="c1"># OG2D1</span>
+<span class="mi">6</span> <span class="mi">6</span> <span class="c1"># HGP1</span>
+<span class="mi">7</span> <span class="mi">6</span> <span class="c1"># HGP1</span>
+<span class="mi">8</span> <span class="mi">6</span> <span class="c1"># HGP1</span>
+<span class="mi">9</span> <span class="mi">7</span> <span class="c1"># HGA3</span>
+<span class="mi">10</span> <span class="mi">7</span> <span class="c1"># HGA3</span>
+<span class="mi">11</span> <span class="mi">7</span> <span class="c1"># HGA3</span>
+
+<span class="n">Charges</span>
+
+<span class="mi">1</span>       <span class="o">-</span><span class="mf">0.011</span> <span class="c1"># CG331</span>
+<span class="mi">2</span>       <span class="o">-</span><span class="mf">0.342</span> <span class="c1"># NG2S1</span>
+<span class="mi">3</span>        <span class="mf">0.226</span> <span class="c1"># CG2O6</span>
+<span class="mi">4</span>       <span class="o">-</span><span class="mf">0.521</span> <span class="c1"># NG2S2</span>
+<span class="mi">5</span>       <span class="o">-</span><span class="mf">0.487</span> <span class="c1"># OG2D1</span>
+<span class="mi">6</span>        <span class="mf">0.296</span> <span class="c1"># HGP1 (AMIDE SIDE)</span>
+<span class="mi">7</span>        <span class="mf">0.296</span> <span class="c1"># HGP1 (AMIDE SIDE)</span>
+<span class="mi">8</span>        <span class="mf">0.273</span> <span class="c1"># HGP1 (METHYL SIDE)</span>
+<span class="mi">9</span>        <span class="mf">0.090</span> <span class="c1"># HGA3</span>
+<span class="mi">10</span>       <span class="mf">0.090</span> <span class="c1"># HGA3</span>
+<span class="mi">11</span>       <span class="mf">0.090</span> <span class="c1"># HGA3</span>
+
+<span class="n">Masses</span>
+
+<span class="mi">1</span>       <span class="mf">12.011</span> <span class="c1"># CG331</span>
+<span class="mi">2</span>       <span class="mf">14.007</span> <span class="c1"># NG2S1</span>
+<span class="mi">3</span>       <span class="mf">12.011</span> <span class="c1"># CG2O6</span>
+<span class="mi">4</span>       <span class="mf">14.007</span> <span class="c1"># NG2S2</span>
+<span class="mi">5</span>       <span class="mf">15.999</span> <span class="c1"># OG2D1</span>
+<span class="mi">6</span>       <span class="mf">1.008</span> <span class="c1"># HGP1 (AMIDE SIDE)</span>
+<span class="mi">7</span>       <span class="mf">1.008</span> <span class="c1"># HGP1 (AMIDE SIDE)</span>
+<span class="mi">8</span>       <span class="mf">1.008</span> <span class="c1"># HGP1 (METHYL SIDE)</span>
+<span class="mi">9</span>       <span class="mf">1.008</span> <span class="c1"># HGA3</span>
+<span class="mi">10</span>      <span class="mf">1.008</span> <span class="c1"># HGA3</span>
+<span class="mi">11</span>      <span class="mf">1.008</span> <span class="c1"># HGA3</span>
+
+<span class="n">Bonds</span>
+
+<span class="mi">1</span> <span class="mi">1</span>     <span class="mi">3</span> <span class="mi">2</span> <span class="c1"># CG2O6 - NG2S1</span>
+<span class="mi">2</span> <span class="mi">2</span>     <span class="mi">3</span> <span class="mi">4</span> <span class="c1"># CG2O6 - NG2S2</span>
+<span class="mi">3</span> <span class="mi">3</span>     <span class="mi">3</span> <span class="mi">5</span> <span class="c1"># CG2O6 - OG2D1</span>
+<span class="mi">4</span> <span class="mi">4</span>     <span class="mi">1</span> <span class="mi">2</span> <span class="c1"># CG331 - NG2S1</span>
+<span class="mi">5</span> <span class="mi">5</span>     <span class="mi">1</span> <span class="mi">9</span> <span class="c1"># CG331 - HGA3 (same as 1 10, 1 11)</span>
+<span class="mi">6</span> <span class="mi">5</span>     <span class="mi">1</span> <span class="mi">10</span> <span class="c1"># CG331 - HGA3</span>
+<span class="mi">7</span> <span class="mi">5</span>     <span class="mi">1</span> <span class="mi">11</span> <span class="c1"># CG331 - HGA3</span>
+<span class="mi">8</span> <span class="mi">6</span>     <span class="mi">2</span> <span class="mi">8</span> <span class="c1"># NG2S1 - HGP1</span>
+<span class="mi">9</span> <span class="mi">7</span>     <span class="mi">4</span> <span class="mi">6</span> <span class="c1"># NG2S2 - HGP1 (same as 4 7)</span>
+<span class="mi">10</span> <span class="mi">7</span>    <span class="mi">4</span> <span class="mi">7</span> <span class="c1"># NG2S2 - HGP1</span>
+
+<span class="n">Angles</span>
+
+<span class="mi">1</span> <span class="mi">1</span>     <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="c1"># NG2S1 - CG2O6 - NG2S2</span>
+<span class="mi">2</span> <span class="mi">2</span>     <span class="mi">2</span> <span class="mi">3</span> <span class="mi">5</span> <span class="c1"># NG2S1 - CG2O6 - OG2D1</span>
+<span class="mi">3</span> <span class="mi">3</span>     <span class="mi">4</span> <span class="mi">3</span> <span class="mi">5</span> <span class="c1"># NG2S2 - CG2O6 - OG2D1</span>
+<span class="mi">4</span> <span class="mi">4</span>     <span class="mi">2</span> <span class="mi">1</span> <span class="mi">9</span> <span class="c1"># NG2S1 - CG331 - HGA3</span>
+<span class="mi">5</span> <span class="mi">4</span>     <span class="mi">2</span> <span class="mi">1</span> <span class="mi">10</span> <span class="c1"># NG2S1 - CG331 - HGA3</span>
+<span class="mi">6</span> <span class="mi">4</span>     <span class="mi">2</span> <span class="mi">1</span> <span class="mi">11</span> <span class="c1"># NG2S1 - CG331 - HGA3</span>
+<span class="mi">7</span> <span class="mi">5</span>     <span class="mi">9</span> <span class="mi">1</span> <span class="mi">10</span> <span class="c1"># HGA3 - CG331 - HGA3</span>
+<span class="mi">8</span> <span class="mi">5</span>     <span class="mi">9</span> <span class="mi">1</span> <span class="mi">11</span> <span class="c1"># HGA3 - CG331 - HGA3</span>
+<span class="mi">9</span> <span class="mi">5</span>     <span class="mi">10</span> <span class="mi">1</span> <span class="mi">11</span> <span class="c1"># HGA3 - CG331 - HGA3</span>
+<span class="mi">10</span> <span class="mi">6</span>    <span class="mi">3</span> <span class="mi">2</span> <span class="mi">1</span> <span class="c1"># CG2O6 - NG2S1 - CG331</span>
+<span class="mi">11</span> <span class="mi">7</span>    <span class="mi">3</span> <span class="mi">2</span> <span class="mi">8</span> <span class="c1"># CG2O6 - NG2S1 - HGP1 (METHYL SIDE)</span>
+<span class="mi">12</span> <span class="mi">8</span>    <span class="mi">1</span> <span class="mi">2</span> <span class="mi">8</span> <span class="c1"># CG331 - NG2S1 - HGP1 (METHYL SIDE)</span>
+<span class="mi">13</span> <span class="mi">9</span>    <span class="mi">3</span> <span class="mi">4</span> <span class="mi">7</span> <span class="c1"># CG2O6 - NG2S2 - HGP1 (AMIDE SIDE)</span>
+<span class="mi">14</span> <span class="mi">9</span>    <span class="mi">3</span> <span class="mi">4</span> <span class="mi">6</span> <span class="c1"># CG2O6 - NG2S2 - HGP1 (AMIDE SIDE)</span>
+<span class="mi">15</span> <span class="mi">10</span>   <span class="mi">7</span> <span class="mi">4</span> <span class="mi">6</span> <span class="c1"># HGP1 - NG2S2 - HGP1 (AMIDE SIDE)</span>
+
+<span class="n">Dihedrals</span>
+
+<span class="mi">1</span> <span class="mi">1</span>     <span class="mi">4</span> <span class="mi">3</span> <span class="mi">2</span> <span class="mi">1</span> <span class="c1"># NG2S2 - CG2O6 - NG2S1 - CG331 (TRANS)</span>
+<span class="mi">2</span> <span class="mi">2</span>     <span class="mi">4</span> <span class="mi">3</span> <span class="mi">2</span> <span class="mi">8</span> <span class="c1"># NG2S2 - CG2O6 - NG2S1 - HGP1 (METHYL SIDE)</span>
+<span class="mi">3</span> <span class="mi">3</span>     <span class="mi">5</span> <span class="mi">3</span> <span class="mi">2</span> <span class="mi">1</span> <span class="c1"># OG2D1 - CG2O6 - NG2S1 - CG331 (CIS)</span>
+<span class="mi">4</span> <span class="mi">4</span>     <span class="mi">5</span> <span class="mi">3</span> <span class="mi">2</span> <span class="mi">8</span> <span class="c1"># OG2D1 - CG2O6 - NG2S1 - HGP1 (METHYL SIDE)</span>
+<span class="mi">5</span> <span class="mi">5</span>     <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">7</span> <span class="c1"># NG2S1 - CG2O6 - NG2S2 - HGP1 (AMIDE SIDE)</span>
+<span class="mi">6</span> <span class="mi">6</span>     <span class="mi">5</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">6</span> <span class="c1"># OG2D1 - CG2O6 - NG2S2 - HGP1 (AMIDE SIDE)</span>
+<span class="mi">7</span> <span class="mi">7</span>     <span class="mi">9</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="c1"># HGA3 - CG331 - NG2S1 - CG2O6</span>
+<span class="mi">8</span> <span class="mi">8</span>     <span class="mi">9</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">8</span> <span class="c1"># HGA3 - CG331 - NG2S1 - HGP1 (METHYL SIDE)</span>
+
+<span class="n">Impropers</span>
+
+<span class="mi">1</span> <span class="mi">1</span>     <span class="mi">3</span> <span class="mi">2</span> <span class="mi">4</span> <span class="mi">5</span> <span class="c1"># CG2O6 - NG2S1 - NG2S2 - OG2D1</span>
+</pre></div>
+</div>
+<p>There are differences in identification for each type of atom in methylurea which differs from that of the TIP3P-FB water system shown <a class="reference internal" href="#tip3p-fb-water-model"><span class="std std-ref">previously</span></a>. It is vital to ensure that the atoms listed within the force field data are the same for the structure you create in PACKMOL. As previously emphasized, <strong>all</strong> bonds, angles, dihedrals, and impropers <strong>must</strong> be listed within the <code class="docutils literal notranslate"><span class="pre">.connect</span></code> file.</p>
+</section>
+<section id="angle-coefficiens-file">
+<h4>Angle Coefficiens File<a class="headerlink" href="#angle-coefficiens-file" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">angle_coeff</span> <span class="mi">1</span>   <span class="mf">70.00</span>   <span class="mf">115.0</span> <span class="c1"># NG2S1 - CG2O6 - NG2S2</span>
+<span class="n">angle_coeff</span> <span class="mi">2</span>   <span class="mf">60.00</span>   <span class="mf">125.7</span> <span class="c1"># NG2S1 - CG2O6 - OG2D1</span>
+<span class="n">angle_coeff</span> <span class="mi">3</span>   <span class="mf">75.00</span>   <span class="mf">122.5</span> <span class="c1"># NG2S2 - CG2O6 - OG2D1</span>
+<span class="n">angle_coeff</span> <span class="mi">4</span>   <span class="mf">51.50</span>   <span class="mf">109.5</span> <span class="c1"># NG2S1 - CG331 - HGA3</span>
+<span class="n">angle_coeff</span> <span class="mi">5</span>   <span class="mf">35.50</span>   <span class="mf">108.4</span> <span class="c1"># HGA3 - CG331 - HGA3</span>
+<span class="n">angle_coeff</span> <span class="mi">6</span>   <span class="mf">60.00</span>   <span class="mf">120.0</span> <span class="c1"># CG2O6 - NG2S1 - CG331</span>
+<span class="n">angle_coeff</span> <span class="mi">7</span>   <span class="mf">40.00</span>   <span class="mf">121.5</span> <span class="c1"># CG2O6 - NG2S1 - HGP1</span>
+<span class="n">angle_coeff</span> <span class="mi">8</span>   <span class="mf">35.00</span>   <span class="mf">117.0</span> <span class="c1"># CG331 - NG2S1 - HGP1</span>
+<span class="n">angle_coeff</span> <span class="mi">9</span>   <span class="mf">50.00</span>   <span class="mf">120.0</span> <span class="c1"># CG2O6 - NG2S2 - HGP1</span>
+<span class="n">angle_coeff</span> <span class="mi">10</span>  <span class="mf">23.00</span>   <span class="mf">120.0</span> <span class="c1"># HGP1 - NG2S2 - HGP1</span>
+</pre></div>
+</div>
+<p>As previously mentioned, all of the <code class="docutils literal notranslate"><span class="pre">.parameter</span></code> files for PACKMOL describe the <strong>types</strong> which are expressed in the <code class="docutils literal notranslate"><span class="pre">.connect</span></code> file. In this case, there are 15 total angles in the molecule but only 10 types, which are stated above. For data shown in the PACKMOL files, there may be terms which are present in the force field data that are not within the PACKMOL setup. For example, angle terms may have Urey-Bradley coefficients. These can be added once the <code class="docutils literal notranslate"><span class="pre">data.lmps</span></code> file is generated at the end of the PACKMOL process, and <strong>should not</strong> be inputted prior to running the <code class="docutils literal notranslate"><span class="pre">molec_generator.py</span></code> and <code class="docutils literal notranslate"><span class="pre">build.py</span> <span class="pre">&lt;</span> <span class="pre">file.inp</span></code> steps. Only once the <code class="docutils literal notranslate"><span class="pre">data.lmps</span></code> file is created successfully may these terms be added.</p>
+</section>
+<section id="dihedral-coefficients-file">
+<h4>Dihedral Coefficients File<a class="headerlink" href="#dihedral-coefficients-file" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dihedral_coeff</span> <span class="mi">1</span>      <span class="mf">2.5000</span>  <span class="mi">2</span>     <span class="mi">180</span>    <span class="mf">0.0</span> <span class="c1"># NG2S2 - CG2O6 - NG2S1 - CG331</span>
+<span class="n">dihedral_coeff</span> <span class="mi">2</span>      <span class="mf">4.0000</span>  <span class="mi">2</span>     <span class="mi">180</span>    <span class="mf">0.0</span> <span class="c1"># NG2S2 - CG2O6 - NG2S1 - HGP1</span>
+<span class="n">dihedral_coeff</span> <span class="mi">3</span>      <span class="mf">0.9500</span>  <span class="mi">4</span>       <span class="mi">0</span>    <span class="mf">0.0</span> <span class="c1"># OG2D1 - CG2O6 - NG2S1 - CG331</span>
+<span class="n">dihedral_coeff</span> <span class="mi">4</span>      <span class="mf">0.0000</span>  <span class="mi">2</span>     <span class="mi">180</span>    <span class="mf">0.0</span> <span class="c1"># OG2D1 - CG2O6 - NG2S1 - HGP1</span>
+<span class="n">dihedral_coeff</span> <span class="mi">5</span>      <span class="mf">1.5000</span>  <span class="mi">2</span>     <span class="mi">180</span>    <span class="mf">0.0</span> <span class="c1"># NG2S1 - CG2O6 - NG2S2 - HGP1</span>
+<span class="n">dihedral_coeff</span> <span class="mi">6</span>      <span class="mf">1.4000</span>  <span class="mi">2</span>     <span class="mi">180</span>    <span class="mf">0.0</span> <span class="c1"># OG2D1 - CG2O6 - NG2S2 - HGP1</span>
+<span class="n">dihedral_coeff</span> <span class="mi">7</span>      <span class="mf">0.0000</span>  <span class="mi">3</span>       <span class="mi">0</span>    <span class="mf">0.0</span> <span class="c1"># HGA3 - CG331 - NG2S1 - CG2O6</span>
+<span class="n">dihedral_coeff</span> <span class="mi">8</span>      <span class="mf">0.0000</span>  <span class="mi">3</span>       <span class="mi">0</span>    <span class="mf">0.0</span> <span class="c1"># HGA3 - CG331 - NG2S1 - HGP1</span>
+</pre></div>
+</div>
+<p>Dihedral coefficients require a weighing factor which is not present in the force field workup. These can be determined by reading the LAMMPS documentation (<a class="reference external" href="https://docs.lammps.org">https://docs.lammps.org</a>) to determine when weighing factors need to be non-zero values. Additionally, force field workups may include multiple lines which contain the same relevant atoms to a given dihedral. These can discern between cis and trans conformations and should be studied carefully <strong>prior</strong> to writing the PACKMOL <code class="docutils literal notranslate"><span class="pre">.dihedralcoeffs</span></code> file. It is recommended to observe the structure from its PBD file or from an online source to see the best optimized geometry.</p>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="PyMOL.html" class="btn btn-neutral float-left" title="PyMOL" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="MOLDEN.html" class="btn btn-neutral float-right" title="MOLDEN" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, University of Kansas.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

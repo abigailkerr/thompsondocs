@@ -1,0 +1,212 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PyMOL &mdash; Thompson Group Reference Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+    <link rel="shortcut icon" href="_static/ku.png"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="PACKMOL" href="PACKMOL.html" />
+    <link rel="prev" title="Cluster Commands" href="Cluster%20Commands.html" />
+    <link href="_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/TG_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Joining%20the%20KU%20Community%20Cluster.html">Joining the KU Community Cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Basic%20Terminal%20Commands.html"> Basic Terminal Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cluster%20Commands.html">Cluster Commands</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"> PyMOL</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basics-gui">Basics: GUI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#opening-a-trajectory">Opening a Trajectory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#working-with-an-object">Working with an Object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#common-commands">Common Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#saving-images">Saving Images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scripting">Scripting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="PACKMOL.html"> PACKMOL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MOLDEN.html"> MOLDEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Developing%20Molecules%20for%20LAMMPS.html"> Developing Molecules for LAMMPS</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Thompson Group Reference Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"> PyMOL</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/PyMOL.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ico1-pymol">
+<h1><a class="reference external" href="https://sourceforge.net/p/pymol/code/HEAD/tree/trunk/pymol/data/pymol/icons/icon2.svg"><img alt="ico1" src="_images/icon2.png" style="width: 2.5ex; height: 2.5ex;" /></a> PyMOL<a class="headerlink" href="#ico1-pymol" title="Link to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page is adapted from the group document, “PyMOL Intro”, written by Elle Bartlett. PyMOL logo: <a class="reference external" href="https://sourceforge.net/p/pymol/code/HEAD/tree/trunk/pymol/data/pymol/icons/icon2.svg">https://sourceforge.net/p/pymol/code/HEAD/tree/trunk/pymol/data/pymol/icons/icon2.svg</a>.</p>
+</div>
+<section id="installation">
+<span id="id1"></span><h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>At <a class="reference external" href="https://pymol.org/">https://pymol.org/</a>, click download now. Click on the corresponding installation package for your device. Follow the corresponding instructions. Save the license file anywhere on your device (email Dr. Thompson or ask one of the group members for the latest PyMOL license). When you open PyMOL, you will see a popup called “activation”. Click browse for license file and navigate to wherever you have saved it.</p></li>
+</ul>
+</section>
+<section id="basics-gui">
+<span id="id2"></span><h2>Basics: GUI<a class="headerlink" href="#basics-gui" title="Link to this heading"></a></h2>
+<section id="opening-a-trajectory">
+<h3>Opening a Trajectory<a class="headerlink" href="#opening-a-trajectory" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Opening a trajectory or visualization state can be done in three separate ways:</dt><dd><ul>
+<li><p>You can open a file via File -&gt; Open and select the file you want to view.</p></li>
+<li><p>Drag and drop file into PyMOL itself.</p></li>
+<li><p>Use the command <code class="docutils literal notranslate"><span class="pre">load_traj</span></code> (see <a class="reference external" href="https://pymolwiki.org/index.php/Load_traj">https://pymolwiki.org/index.php/Load_traj</a>).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Large files may take some time to load. Accepted file types are given in <a class="reference external" href="https://pymol.org/dokuwiki/doku.php?id=format">https://pymol.org/dokuwiki/doku.php?id=format</a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Any dcd trajectories require loading of a topology file, commonly .pbd or .cif. For .xyz files, single frames can be loaded as a topology file as well.</p>
+</div>
+</section>
+<section id="working-with-an-object">
+<h3>Working with an Object<a class="headerlink" href="#working-with-an-object" title="Link to this heading"></a></h3>
+<ul>
+<li><p>When making a selection:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">select</span> <span class="pre">name</span> <span class="pre">X</span></code> where <code class="docutils literal notranslate"><span class="pre">X</span></code> is your naming convention in the trajectory.</p></li>
+<li><p>You can also select with the mouse and use the right margins to adjustcolors or labels.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Changing representation on right panel:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>There are rows that exist within the panel for each loaded state in PyMOL. You can use the “all” section to change the visualization, color, labels, etc. for all species in the system. As more trajectories are added, specific sites can be rendered differently than others.</p></li>
+<li><p>S (show) -&gt; as -&gt; (select options here)</p></li>
+<li><p>C (color) -&gt; (select color palette here)</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="common-commands">
+<h3>Common Commands<a class="headerlink" href="#common-commands" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">hide</span> <span class="pre">lines</span></code> hides all bonds connecting atoms</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">sticks</span></code> shows bonds as sticks (easier to see bonds explicitly)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">spheres</span></code> shows all atoms as spheres</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">stick_radius,</span> <span class="pre">0.1,</span> <span class="pre">(all)</span></code> sets the stick radius</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">sphere_scale,</span> <span class="pre">0.25,</span> <span class="pre">(all)</span></code> sets the sphere radius</p></li>
+</ul>
+</section>
+<section id="saving-images">
+<h3>Saving Images<a class="headerlink" href="#saving-images" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>On the top toolbar, within File. You can select “Export Image As” or “Export Movie” for frame images or trajectories, respectively.</p></li>
+<li><p>Draw/Ray on the top of the right margin for specifications of specific images.</p></li>
+<li><p>Display on the top toolbar has options for resolution, background, etc.</p></li>
+</ul>
+</section>
+<section id="scripting">
+<h3>Scripting<a class="headerlink" href="#scripting" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Command <code class="docutils literal notranslate"><span class="pre">run</span> <span class="pre">path/to/script/example.py</span></code> will run a script of interest.</p></li>
+<li><p>An example script can be found within Elle’s cluster profile: <code class="docutils literal notranslate"><span class="pre">/kuhpc/work/thompson/pymol/</span></code>.</p></li>
+<li><p>For an online example: <a class="reference external" href="https://pymolwiki.org/index.php/DrawBoundingBox">https://pymolwiki.org/index.php/DrawBoundingBox</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Cluster%20Commands.html" class="btn btn-neutral float-left" title="Cluster Commands" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="PACKMOL.html" class="btn btn-neutral float-right" title="PACKMOL" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, University of Kansas.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

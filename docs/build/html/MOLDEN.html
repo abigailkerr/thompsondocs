@@ -1,0 +1,184 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MOLDEN &mdash; Thompson Group Reference Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+    <link rel="shortcut icon" href="_static/ku.png"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Developing Molecules for LAMMPS" href="Developing%20Molecules%20for%20LAMMPS.html" />
+    <link rel="prev" title="PACKMOL" href="PACKMOL.html" />
+    <link href="_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/TG_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Joining%20the%20KU%20Community%20Cluster.html">Joining the KU Community Cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Basic%20Terminal%20Commands.html"> Basic Terminal Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cluster%20Commands.html">Cluster Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyMOL.html"> PyMOL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PACKMOL.html"> PACKMOL</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"> MOLDEN</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#reading-files-and-editing-the-z-matrix">Reading Files and Editing the Z-Matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#z-matrix-basics">Z-Matrix Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-editing-and-optimizing-structures">Creating, Editing, and Optimizing Structures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#saving-z-matrices-and-coordinates">Saving Z-Matrices and Coordinates</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Developing%20Molecules%20for%20LAMMPS.html"> Developing Molecules for LAMMPS</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Thompson Group Reference Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"> MOLDEN</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/MOLDEN.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ico3-molden">
+<h1><a class="reference external" href="https://www.theochem.ru.nl/molden/"><img alt="ico3" src="_images/molden.png" style="width: 2.5ex; height: 2.5ex;" /></a> MOLDEN<a class="headerlink" href="#ico3-molden" title="Link to this heading"></a></h1>
+<a class="reference internal image-reference" href="_images/molden_cntrl.png"><img alt="_images/molden_cntrl.png" class="align-right" src="_images/molden_cntrl.png" style="height: 400px;" />
+</a>
+<p>MOLDEN is a software which can create, edit, and optimize structures of molecules for their implementation into <a class="reference internal" href="PACKMOL.html"><span class="doc"> PACKMOL</span></a>. To use MOLDEN, the following steps must be completed:</p>
+<ol class="arabic simple">
+<li><p>Download XQuartz from their <a class="reference external" href="https://www.xquartz.org">website</a>.</p></li>
+<li><p>Login to the cluster with your KUID (see <a class="reference internal" href="Cluster%20Commands.html"><span class="doc">Cluster Commands</span></a>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">molden/7.3</span></code></p></li>
+<li><p>Enter the directory where you wish to run MOLDEN. It is recommended that for reading accepted files for Z-Matrix editing to be within directories that contain the file(s) of interest.</p></li>
+<li><p>Type <code class="docutils literal notranslate"><span class="pre">molden</span></code> to start your MOLDEN session.</p></li>
+</ol>
+<p>Once MOLDEN is opened, the Control Panel screen will appear alongside the visualization screen (see right). The MOLDEN Control panel will allow you to read files, edit your Z-matrix, calculate molecular parameters, and optimize the structure of a molecule. These commonly used features will be explained below; for more details on how to use MOLDEN to create molecules, see the <a class="reference internal" href="Developing%20Molecules%20for%20LAMMPS.html"><span class="doc"> Developing Molecules for LAMMPS</span></a> section.
+To quit MOLDEN, press the skull image in the MOLDEN Control Panel. This will close all tabs in your MOLDEN session and return you to the terminal.</p>
+<section id="reading-files-and-editing-the-z-matrix">
+<span id="id1"></span><h2>Reading Files and Editing the Z-Matrix<a class="headerlink" href="#reading-files-and-editing-the-z-matrix" title="Link to this heading"></a></h2>
+<p>MOLDEN allows the ability for files to be read into the Z-matrix editor for quick creation of molecules. This can be done via selecting the “Read” button within the “Miscellaneous” header on the control panel. The file can then be selected from the window. Once the file is read, the Z-matrix can be opened within the “ZMAT Editor” under the “Miscellaneous” header. The Z-matrix provides key details for the bonds, angles, and dihedrals of the system. This can be viewed for editing the parameters as well as editing the molecule itself.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When atoms are opened, it is helpful to select the “Solids; Sticks” buttons under the “Draw Mode” header to see the molecule clearly.</p>
+</div>
+<a class="reference internal image-reference" href="_images/zmat1.png"><img alt="_images/zmat1.png" class="align-right" src="_images/zmat1.png" style="height: 500px;" />
+</a>
+<section id="z-matrix-basics">
+<span id="id2"></span><h3>Z-Matrix Basics<a class="headerlink" href="#z-matrix-basics" title="Link to this heading"></a></h3>
+<p>If you are unfamiliar with Z-matrices and how to read them within MOLDEN, fear not! Z-matrices provide all the necessary details to form the molecule and make sure its atoms are oriented properly.</p>
+<p>Following the Z-matrix image, the first column displays the specific atom within the molecule. The first row shows the first atom in the molecule (which may not necessarily be the central atom!). This row is known as <em>Row 1</em> and will be important when identifying bonds, angles, and dihedrals. As you progress down to the next row, a new column is added. This describes a <em>bond</em> between the atom in Row 1 and the atom in Row 2. The numbed columns between each parameter denote which atom is bonded to which; the third atom which composes the angle; and the final fourth atom that composes the dihedral. These values <strong>cannot</strong> be repeated within the specific row and are chosen carefully to account for as much of the molecule as possible. From the Z-matrix image, the visualization screen can correlate which atoms are affiliated with which parameter.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is highly recommended to find molecule files online which can be imported to MOLDEN to auto-create Z-matrices by reading their files. For example, a <code class="docutils literal notranslate"><span class="pre">.xyz</span></code> or <code class="docutils literal notranslate"><span class="pre">.mol2</span></code> file can be read into MOLDEN if it is uploaded onto the cluster. As shown with the example, the first atom is not necessarily the central atom and must be chosen carefully to ensure the molecule is created correctly.</p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<a class="reference internal image-reference" href="_images/data.png"><img alt="_images/data.png" class="align-center" src="_images/data.png" style="height: 400px;" />
+</a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>From the Z-matrix, it can be shown that the selected atom is colored red, and its secondary bonded atom is in yellow. You can also see this as both of these atoms are colored in the visualization screen. As the next row is added, a new column for <em>angle</em> is added. This colors the atoms of the molecule similar to that for bonds, but with a third atom colored green. The central atom will always be yellow when viewing angles. Lastly, the final column added is for that of <em>dihedrals</em>. These can be seen with the central atom still in yellow, but with a final fourth atom outlined in blue.</p>
+</section>
+<section id="creating-editing-and-optimizing-structures">
+<span id="id3"></span><h3>Creating, Editing, and Optimizing Structures<a class="headerlink" href="#creating-editing-and-optimizing-structures" title="Link to this heading"></a></h3>
+<p>Creating molecules is possible within MOLDEN by a similar process to viewing the Z-matrix itself. You can select the “ZMAT Editor” from the MOLDEN Control panel to open an empty Z-Matrix. Then, you can press the “Add Line” button to add atoms to the system. As more lines are added, you must select other atoms to show bonds, angles, and dihedrals for the system. These can be edited later but must be initially stated in order for the atom to be added. Selecting bonded atoms can be done either by clicking lines in the Z-matrix or clicking atoms directly in the visualization screen.</p>
+<p>Editing molecules can be done simply by clicking the data values for bond/angle/dihedral and typing in new values to edit. Pressing enter will update the structure, or you can also press “Apply Changes to Current Z-Mat” to update the structure. There are times where adjusting a value may cause the structure to become unstable, and MOLDEN will let you know within the terminal and also within the Status Line on the MOLDEN Control Panel. If you are attempting to update the matrix and nothing changes, look at these places for potential warnings that prevent an unstable structure from forming.</p>
+<p>Optimizing a structure can be done by simply pressing the “FF” button on the MOLDEN Control Panel. You can use “Tinker CHARMM” to optimize the structure. This will automatically find the most stable configuration for the molecule and will update its parameters accordingly. From this, you can enter a file name and export the coordinates (select the “Cartesian” button and “xyz” from the bottom of the Z-matrix editor panel) or export the Z-matrix itself (select the “Gaussian” button and enter a file name) by hitting the “Write Z-Matrix” button. See <a class="reference internal" href="#saving-z-matrices-and-coordinates"><span class="std std-ref">below</span></a> for details.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There may be issues optimizing the structure for new users. You can instead follow the instructions in the <a class="reference internal" href="Developing%20Molecules%20for%20LAMMPS.html"><span class="doc"> Developing Molecules for LAMMPS</span></a> to optimize the geometry in another way (via LAMMPS) if MOLDEN tells you that you have “untyped atoms” in the system. You can also use Avogadro to create and optimize Z-matrices if you are familiar.</p>
+</div>
+</section>
+<section id="saving-z-matrices-and-coordinates">
+<span id="id4"></span><h3>Saving Z-Matrices and Coordinates<a class="headerlink" href="#saving-z-matrices-and-coordinates" title="Link to this heading"></a></h3>
+<p>Editing a structure in MOLDEN does not automatically update the read files, changes must be saved and exported for permanent changes. This can be done simply by pressing the Gaussian or Cartesian buttons at the bottom of the Z-matrix editor to export Z-matrices or coordinates, respectively. For either case, a file name <strong>must</strong> be specified within the text box above the selection buttons. For example, an xyz file that is exported will be shown in the directory as the following:</p>
+<a class="reference internal image-reference" href="_images/xyz_ex.png"><img alt="_images/xyz_ex.png" class="align-right" src="_images/xyz_ex.png" style="width: 300px;" />
+</a>
+<p>When creating a molecule for LAMMPS (<a class="reference internal" href="Developing%20Molecules%20for%20LAMMPS.html"><span class="doc"> Developing Molecules for LAMMPS</span></a>), the Cartesian coordinates must be used for PACKMOL. In this case, <code class="docutils literal notranslate"><span class="pre">.xyz</span></code> files are the easiest way to quickly add these to the necessary files. This can be done by selecting the “Cartesian” button and then pressing the “xyz” file from the selection menu. Make sure to press “Write Z-Matrix” to export the files accordingly!
+Gaussian exports will save the Z-Matrix data for the desired file name. This can be done if you have plans to edit the Z-Matrix later, or plans to view the structure at some other time. It is recommended that in the case of developing molecules for LAMMPS that <strong>both</strong> the Z-matrix and the Cartesian coordinates are saved to ensure the molecule is still available should any issues occur during the PACKMOL process.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="PACKMOL.html" class="btn btn-neutral float-left" title="PACKMOL" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Developing%20Molecules%20for%20LAMMPS.html" class="btn btn-neutral float-right" title="Developing Molecules for LAMMPS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, University of Kansas.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

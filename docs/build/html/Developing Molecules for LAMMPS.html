@@ -1,0 +1,615 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Developing Molecules for LAMMPS &mdash; Thompson Group Reference Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+    <link rel="shortcut icon" href="_static/ku.png"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="MOLDEN" href="MOLDEN.html" />
+    <link href="_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/TG_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Joining%20the%20KU%20Community%20Cluster.html">Joining the KU Community Cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Basic%20Terminal%20Commands.html"> Basic Terminal Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cluster%20Commands.html">Cluster Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyMOL.html"> PyMOL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PACKMOL.html"> PACKMOL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MOLDEN.html"> MOLDEN</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"> Developing Molecules for LAMMPS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#obtaining-force-field-data">Obtaining Force Field Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cgenff-example">CGenFF Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-the-molecule">Creating the Molecule</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#implementing-force-field-data">Implementing Force Field Data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#packmol-steps">PACKMOL Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#optimizing-the-structure-with-lammps">Optimizing the Structure with LAMMPS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lammps-steps">LAMMPS Steps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lammps-energy-minimization-header-example">LAMMPS Energy Minimization Header Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lammps-energy-minimization-footer-example">LAMMPS Energy Minimization Footer Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lammps-energy-minimization-file-example">LAMMPS Energy Minimization File Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lammps-energy-minimization-bash-script-example">LAMMPS Energy Minimization Bash Script Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#troubleshooting-energy-minimization">Troubleshooting Energy Minimization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#importing-optimized-geometry-to-packmol">Importing Optimized Geometry to PACKMOL</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#other-lammps-tips">Other LAMMPS Tips</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Thompson Group Reference Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"> Developing Molecules for LAMMPS</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Developing Molecules for LAMMPS.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ico4-developing-molecules-for-lammps">
+<span id="developing-molecules-for-lammps"></span><h1><a class="reference external" href="https://docs.lammps.org"><img alt="ico4" src="_images/lammps.png" style="height: 2.3ex;" /></a> Developing Molecules for LAMMPS<a class="headerlink" href="#ico4-developing-molecules-for-lammps" title="Link to this heading"></a></h1>
+<p>In order to run simulations for new molecules in LAMMPS, <a class="reference internal" href="PACKMOL.html"><span class="doc"> PACKMOL</span></a> and <a class="reference internal" href="MOLDEN.html"><span class="doc"> MOLDEN</span></a> must be used. This step-by-step tutorial should (hopefully) equip you with enough information to successfully create and optimize a molecule for LAMMPS usage.</p>
+<section id="obtaining-force-field-data">
+<span id="id1"></span><h2>Obtaining Force Field Data<a class="headerlink" href="#obtaining-force-field-data" title="Link to this heading"></a></h2>
+<p>If you have been provided a paper for a simulated molecule, most force field data <em>should</em> be in the Supplementary Information. However, this may not always be the case, or parts of the force field data may be missing. In this case, <a class="reference external" href="https://cgenff.com">CGenFF</a> is used. CGenFF is a force field website which optimizes the relevant data for a structure when provided a <code class="docutils literal notranslate"><span class="pre">.mol2</span></code> file. From this, an <code class="docutils literal notranslate"><span class="pre">.str</span></code> file is produced, which can be viewed for creating the Z-matrix. You will need to create an account within CGenFF in order to upload <code class="docutils literal notranslate"><span class="pre">.mol2</span></code> files.</p>
+<p>To obtain <code class="docutils literal notranslate"><span class="pre">.mol2</span></code> files, many options are available. The easiest is to find a structure for the molecule which has a 3D structure download link. <a class="reference external" href="https://pubchem.ncbi.nlm.nih.gov">PubChem</a> often has structures, or you can find others by simply using Google. There exist <a class="reference external" href="https://www.cheminfo.org/Chemistry/Cheminformatics/FormatConverter/index.html">converters</a> to change certain file types (such as <code class="docutils literal notranslate"><span class="pre">.sdf</span></code> or <code class="docutils literal notranslate"><span class="pre">.xml</span></code>) to <code class="docutils literal notranslate"><span class="pre">.mol2</span></code> or even <code class="docutils literal notranslate"><span class="pre">.xyz</span></code> files.</p>
+<p>Once you have obtaiend the relevant files, login to CGenFF and select “Upload Molecule” from the screen. You can follow the steps as shown to make sure your molecule appears to be correct and submit the job. Then, you can download the <code class="docutils literal notranslate"><span class="pre">.str</span></code> file which contains all of its force field data from CHARMM.</p>
+<a class="reference external image-reference" href="https://cgenff.com"><img alt="_images/cgenff.png" class="align-center" src="_images/cgenff.png" style="height: 300px;" />
+</a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is <strong>highly recommended</strong> you convert the CGenFF output <code class="docutils literal notranslate"><span class="pre">.str</span></code> file to a <code class="docutils literal notranslate"><span class="pre">.txt</span></code> file and print it out on paper. You can do this by just copying all the data from vi and pasting it to a <code class="docutils literal notranslate"><span class="pre">.txt</span></code> format, or you can find a converter online.</p>
+</div>
+<p>Once the force field data is obtained, make sure to keep the <code class="docutils literal notranslate"><span class="pre">.mol2</span></code> file and the <code class="docutils literal notranslate"><span class="pre">.str</span></code> file handy as you <a class="reference internal" href="#creating-the-molecule"><span class="std std-ref">create the molecule</span></a> and optimize its structure.</p>
+<section id="cgenff-example">
+<span id="id2"></span><h3>CGenFF Example<a class="headerlink" href="#cgenff-example" title="Link to this heading"></a></h3>
+<p>The following CGenFF example is for 1-monomethylurea.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>* Toppar stream file generated by
+* CHARMM General Force Field (CGenFF) program version 4.0
+* For use with CGenFF version 4.6
+*
+read rtf card append
+* Topologies generated by
+* CHARMM General Force Field (CGenFF) program version 4.0
+*
+36 1
+! &quot;penalty&quot; is the highest penalty score of the associated parameters.
+! Penalties lower than 10 indicate the analogy is fair; penalties between 10
+! and 50 mean some basic validation is recommended; penalties higher than
+! 50 indicate poor analogy and mandate extensive validation/optimization.
+RESI *****          0.000 ! param penalty=   0.000 ; charge penalty=   0.000
+GROUP            ! CHARGE   CH_PENALTY Z   EL   NB NBE RNG1 TYP RNG2 TYP RNG3 TYP
+ATOM C1     CG2O6   0.226 !    0.000   6   C    3  4
+ATOM O      OG2D1  -0.487 !    0.000   8   O    1  2
+ATOM N1     NG2S2  -0.521 !    0.000   7   N    3  3
+ATOM N2     NG2S1  -0.342 !    0.000   7   N    3  3
+ATOM C2     CG331  -0.011 !    0.000   6   C    4  4
+ATOM H1     HGP1    0.296 !    0.000   1   H    1  1
+ATOM H2     HGP1    0.296 !    0.000   1   H    1  1
+ATOM H3     HGP1    0.273 !    0.000   1   H    1  1
+ATOM H4     HGA3    0.090 !    0.000   1   H    1  1
+ATOM H5     HGA3    0.090 !    0.000   1   H    1  1
+ATOM H6     HGA3    0.090 !    0.000   1   H    1  1
+            ! TYP INR
+BOND C1   O    ! 2   0
+BOND C1   N1   ! 1   0
+BOND C1   N2   ! 1   0
+BOND N1   H1   ! 1   0
+BOND N1   H2   ! 1   0
+BOND N2   C2   ! 1   0
+BOND N2   H3   ! 1   0
+BOND C2   H4   ! 1   0
+BOND C2   H5   ! 1   0
+BOND C2   H6   ! 1   0
+IMPR C1     N2     N1     O
+END
+read param card flex append
+* Parameters generated by analogy by
+* CHARMM General Force Field (CGenFF) program version 4.0
+*
+! Penalties lower than 10 indicate the analogy is fair; penalties between 10
+! and 50 mean some basic validation is recommended; penalties higher than
+! 50 indicate poor analogy and mandate extensive validation/optimization.
+BONDS
+CG2O6  NG2S1   510.00     1.3700 ! DMCB &amp; DECB, dimethyl &amp; diehtyl carbamate, cacha &amp; kevo
+CG2O6  NG2S2   430.00     1.3600 ! UREA, Urea. Uses a slack parameter from PROT from NG2S2  CT3, neutral glycine, adm jr. ==&gt; re-optimize
+CG2O6  OG2D1   650.00     1.2300 ! UREA, Urea. Uses a slack parameter from PROT adm jr. 4/10/91, acetamide ==&gt; re-optimize
+CG331  NG2S1   320.00     1.4300 ! PROT NMA Gas &amp; Liquid Phase IR Spectra (LK)
+CG331  HGA3    322.00     1.1110 ! PROT alkane update, adm jr., 3/2/92
+NG2S1  HGP1    440.00     0.9970 ! PROT Alanine Dipeptide ab initio calc&#39;s (LK)
+NG2S2  HGP1    480.00     1.0000 ! PROT adm jr. 8/13/90 acetamide geometry and vibrations
+ANGLES
+NG2S1  CG2O6  NG2S2    70.00    115.00 ! from NG2S2 CG2O6 NG2S2, PENALTY= 1 CIR THIC
+NG2S1  CG2O6  OG2D1    60.00    125.70 ! DMCB &amp; DECB, dimethyl &amp; diehtyl carbamate, cacha &amp; kevo
+NG2S2  CG2O6  OG2D1    75.00    122.50   50.00   2.37000 ! UREA, Urea. Uses a slack parameter from PROT adm jr. 4/10/91, acetamide update ==&gt; re-optimize
+NG2S1  CG331  HGA3     51.50    109.50 ! PROT NMA crystal (JCS)
+HGA3   CG331  HGA3     35.50    108.40    5.40   1.80200 ! PROT alkane update, adm jr., 3/2/92
+CG2O6  NG2S1  CG331    60.00    120.00 ! DMCB &amp; DECB, dimethyl &amp; diehtyl carbamate, cacha &amp; kevo &amp; xxwy
+CG2O6  NG2S1  HGP1     40.00    121.50 ! DMCB &amp; DECB, dimethyl &amp; diehtyl carbamate, cacha &amp; kevo &amp; xxwy
+CG331  NG2S1  HGP1     35.00    117.00 ! PROT NMA Vibrational Modes (LK)
+CG2O6  NG2S2  HGP1     50.00    120.00 ! PROT his, adm jr. 8/13/90  geometry and vibrations NOW UREA ==&gt; re-optimize???
+HGP1   NG2S2  HGP1     23.00    120.00 ! PROT adm jr. 8/13/90  geometry and vibrations
+DIHEDRALS
+NG2S2  CG2O6  NG2S1  CG331      1.6000  1     0.00 ! from NG2S1 CG2O6 NG2S1 CG331, penalty= 1 THIC
+NG2S2  CG2O6  NG2S1  CG331      2.5000  2   180.00 ! from NG2S1 CG2O6 NG2S1 CG331, penalty= 1 THIC
+NG2S2  CG2O6  NG2S1  HGP1       4.0000  2   180.00 ! from NG2R51 CG2O6 NG2S1 HGP1, PENALTY= 10 CIR THIC
+OG2D1  CG2O6  NG2S1  CG331      4.0000  2   180.00 ! DMCB, dimethyl carbamate, cacha &amp; xxwy
+OG2D1  CG2O6  NG2S1  CG331      0.9500  4     0.00 ! DMCB, dimethyl carbamate, cacha &amp; xxwy
+OG2D1  CG2O6  NG2S1  HGP1       0.0000  2   180.00 ! DMCB &amp; DECB, dimethyl &amp; diehtyl carbamate, cacha &amp; kevo
+NG2S1  CG2O6  NG2S2  HGP1       1.5000  2   180.00 ! from NG2S2 CG2O6 NG2S2 HGP1, PENALTY= 1 CIR THIC
+OG2D1  CG2O6  NG2S2  HGP1       1.4000  2   180.00 ! PROT adm jr. 4/10/91, acetamide update NOW UREA ==&gt; re-optimize???
+HGA3   CG331  NG2S1  CG2O6      0.0000  3     0.00 ! DMCB, diethyl carbamate, kevo
+HGA3   CG331  NG2S1  HGP1       0.0000  3     0.00 ! PROT, sp2-methyl, no torsion potential
+IMPROPERS
+CG2O6  NG2S1  NG2S2  OG2D1     80.0000  0     0.00 ! from CG2O6 NG2S2 NG2S2 OG2D1, PENALTY= 1 CIR
+END
+RETURN
+</pre></div>
+</div>
+<p>Some things to note:</p>
+<ul class="simple">
+<li><p>There exist multiple types for nitrogen (<code class="docutils literal notranslate"><span class="pre">NG2S1</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">NG2S2</span></code>), carbon (<code class="docutils literal notranslate"><span class="pre">CG2O6</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">CG331</span></code>), and hydrogen (<code class="docutils literal notranslate"><span class="pre">HGP1</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">HGA3</span></code>). In order to determine which is which, the bonds and angles can provide key information. For example, the bond between <code class="docutils literal notranslate"><span class="pre">NG2S1-CG331</span></code> implies that the <code class="docutils literal notranslate"><span class="pre">NG2S1</span></code> nitrogen is bound to the methyl carbon. Additionally, the <code class="docutils literal notranslate"><span class="pre">CG331-HGA3</span></code> bond shows which hydrogens are for the methyl group. By process of elimination, this implies all <code class="docutils literal notranslate"><span class="pre">HGP1</span></code> hydrogens are bound to an amide group, the <code class="docutils literal notranslate"><span class="pre">NG2S2</span></code> nitrogen is an amide nitrogen only, and the <code class="docutils literal notranslate"><span class="pre">CG2O6</span></code> carbon is the central carbonyl. This process can be similarly seen via the angles.</p></li>
+<li><p>All <code class="docutils literal notranslate"><span class="pre">!</span></code> denote comments, and all data afterward is from the CHARMM force field. You can ignore these comments. You can erase them so if you choose to print out the force field writeup they are not distracting when you enter the force field data into PACKMOL and the Z-matrix.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is <strong>vital</strong> to label which force field atom is associated to which Z-matrix atom. <strong>Atoms in the Z-matrix are not necessarily the same as atoms in the force field writeup.</strong> If you confuse the labels and assign the atoms per only one of the two orders, <strong>you will end up with an incorrect structure</strong>. See the example below where “F” denotes the force field writeup label and “Z” denotes the Z-matrix label.</p>
+<a class="reference internal image-reference" href="_images/compare.png"><img alt="_images/compare.png" class="align-center" src="_images/compare.png" style="height: 250px;" />
+</a>
+</div>
+<a class="reference internal image-reference" href="_images/methylurea.png"><img alt="_images/methylurea.png" class="align-right" src="_images/methylurea.png" style="height: 250px;" />
+</a>
+<ul class="simple">
+<li><p>Some of the angles contain other values, such as the <code class="docutils literal notranslate"><span class="pre">NG2S2-CG2O6-OG2D1</span></code> angle and the <code class="docutils literal notranslate"><span class="pre">HGA3-CG331-HGA3</span></code> angle. These are known as the Urey-Bradley terms, and <strong>will be added later</strong>. For any other parameters that are within your molecule’s structure, <strong>only</strong> apply the valeus which can be put into the PACKMOL files (see <a class="reference internal" href="PACKMOL.html"><span class="doc"> PACKMOL</span></a> for details).</p></li>
+<li><p>There exist two dihedral values for some of the same sets (<code class="docutils literal notranslate"><span class="pre">NG2S2-CG2O6-NG2S1-CG331</span></code> and <code class="docutils literal notranslate"><span class="pre">OG2D1-CG2O6-NG2S1-CG331</span></code>). These are to denote the cis and trans conformations. You can choose which is which according to the structure’s current orientation, or by a stable orientation image found online. Only <strong>one</strong> of these dihedral conformations (cis <strong>or</strong> trans) should be entered.</p></li>
+<li><p>Each label within the FF document for an atom is equivalent to the atom’s type. For example, 1-monomethylurea has the following structure (see right). Even though one of the <code class="docutils literal notranslate"><span class="pre">HGP1</span></code> hydrogens is on the side where the methyl group is located, it is still considered the <strong>same</strong> type as the other <code class="docutils literal notranslate"><span class="pre">HGP1</span></code> atoms on the amide side.</p></li>
+</ul>
+</section>
+</section>
+<section id="creating-the-molecule">
+<span id="id3"></span><h2>Creating the Molecule<a class="headerlink" href="#creating-the-molecule" title="Link to this heading"></a></h2>
+<p>There are several key steps to creating a molecule for LAMMPS implementation. In order to fully encapsulate all of the steps, this quick start guide will reference relevant sections for generating an optimized molecular structure but remain brief.</p>
+<ol class="arabic">
+<li><p><a class="reference internal" href="#obtaining-force-field-data"><span class="std std-ref">Obtain force field data</span></a> from CHARMM FF literature and/or some force field generator.</p></li>
+<li><p><a class="reference internal" href="#implementing-force-field-data"><span class="std std-ref">Create/edit the molecule</span></a> and optimize its structure.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>If you optimized directly in MOLDEN/Avogadro, import the coordinates into <a class="reference internal" href="PACKMOL.html"><span class="doc"> PACKMOL</span></a> along with all force field data from Step 1.</p></li>
+<li><p>If you plan to use LAMMPS to optimize via <a class="reference internal" href="#optimizing-the-structure-with-lammps"><span class="std std-ref">energy minimization</span></a>, import the initial (unoptimized) coordinates into <a class="reference internal" href="PACKMOL.html"><span class="doc"> PACKMOL</span></a> and create a single molecule simulation. Then run the energy minimization and apply the updated coordinates to <a class="reference internal" href="PACKMOL.html"><span class="doc"> PACKMOL</span></a> to regenerate the molecule in its optimized form.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Use <a class="reference internal" href="PACKMOL.html"><span class="doc"> PACKMOL</span></a> to generate your molecule in a system of solvent for your application.</p></li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>It is <strong>highly</strong> recommended that you read this tutorial carefully. <a class="reference internal" href="PACKMOL.html"><span class="doc"> PACKMOL</span></a>, <a class="reference internal" href="MOLDEN.html"><span class="doc"> MOLDEN</span></a>, and <a class="reference internal" href="#optimizing-the-structure-with-lammps"><span class="std std-ref">LAMMPS energy minimization</span></a> have many details that require time and effort to ensure correctness.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To see all relevant documents for a successful energy minimization (and examples of NpT simulations at varied concentrations) see the following path: <code class="docutils literal notranslate"><span class="pre">/kuhpc/work/thompson/a122k651/packmol/energy_mins/methylurea/</span></code>.</p>
+</div>
+<section id="implementing-force-field-data">
+<span id="id4"></span><h3>Implementing Force Field Data<a class="headerlink" href="#implementing-force-field-data" title="Link to this heading"></a></h3>
+<p>There are multiple ways to create your molecule to import it into PACKMOL. For this tutorial, <a class="reference internal" href="MOLDEN.html"><span class="doc"> MOLDEN</span></a> is used to create its structure and enter all relevant force field parameters.</p>
+<p>It is of key importance that you upload the <code class="docutils literal notranslate"><span class="pre">.mol2</span></code> structure onto your cluster profile. You can do this by creating a directory (within your PACKMOL directory) and placing the file there (you can also just copy and paste similarly to the <code class="docutils literal notranslate"><span class="pre">.txt</span></code> file conversion stated earlier). If you want to create the molecule from scratch, you can ignore this step. However, Z-matrices are picky about the placement of each atom so this could pose great difficulty when creating more complex molecules.</p>
+<ol class="arabic simple">
+<li><p>Begin by loading MOLDEN and starting the application. You can follow the steps in the <a class="reference internal" href="MOLDEN.html"><span class="doc"> MOLDEN</span></a> documentation to upload the <code class="docutils literal notranslate"><span class="pre">.mol2</span></code> file and open the Z-matrix editor.</p></li>
+<li><p>Select each atom in the first column and write its structure according to the rows of the Z-matrix . It is recommended that you write this down somewhere or create a <code class="docutils literal notranslate"><span class="pre">.txt</span></code> file to index which atom is which according to the Z-matrix. As seen in the note within the <a class="reference internal" href="#cgenff-example"><span class="std std-ref">CGenFF example</span></a>, the assignment according to the Z-matrix and force field writeup are not the same and should be differentiated accordingly.</p></li>
+</ol>
+<a class="reference internal image-reference" href="_images/label1.png"><img alt="_images/label1.png" class="align-left" src="_images/label1.png" style="height: 250px;" />
+</a>
+<a class="reference internal image-reference" href="_images/label2.png"><img alt="_images/label2.png" class="align-right" src="_images/label2.png" style="height: 250px;" />
+</a>
+<a class="reference internal image-reference" href="_images/label3.png"><img alt="_images/label3.png" class="align-center" src="_images/label3.png" style="height: 200px;" />
+</a>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Input the bond lengths, angles, and dihedrals according to the force field writeup. You can measure bonds, angles, and dihedrals with the MOLDEN Control Panel by selecting “Bond”, “Angle”, or “Dihedral” under the “Calculate” heading.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Do not be alarmed if some of the parameter (angle, dihedral) values are not in agreement according to the force field writeup and the MOLDEN structure. These will be adjusted accordingly once the structure is optimized. After the optimization has been completed, only the coordinates need to be implemented into PACKMOL. All other parameters can be stated in PACKMOL from the force field data (<strong>not</strong> from the measured angles/dihedrals on MOLDEN).</p>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>You can optimize the structure within MOLDEN (FF on the Control Panel, select Tinker CHARMM or Tinker xyz) or you can optimize with a LAMMPS energy minimization. For LAMMPS, please see <a class="reference internal" href="#optimizing-the-structure-with-lammps"><span class="std std-ref">Optimizing the Structure with LAMMPS</span></a>. If you choose to use MOLDEN or Avogadro to optimize the strucutre, you can simply obtain the Cartesian coordinates and skip the energy minimization steps.</p></li>
+<li><p>Export the Z-matrix (select Gaussain) and coordinates (Cartesian, select xyz from panel) on the ZMAT Editor page by pressing “Write Z-Matrix” after naming your file. Make sure to name the Z-matrix and Cartesian coordinate files differently. It is highly recommended to save both should any issues occur while you are creating your molecule during the PACKMOL stages.</p></li>
+</ol>
+<section id="packmol-steps">
+<span id="id5"></span><h4>PACKMOL Steps<a class="headerlink" href="#packmol-steps" title="Link to this heading"></a></h4>
+<ol class="arabic">
+<li><p>Start by creating a directory within the PACKMOL directory for all PACKMOL starter files. You can follow along with the directions listed in the <a class="reference internal" href="PACKMOL.html"><span class="doc"> PACKMOL</span></a> docs to create the structure.</p></li>
+<li><p>Some key remarks to make your PACKMOL experience smooth:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Make sure to label <strong>all</strong> bonds, angles, dihedrals, and impropers within the <code class="docutils literal notranslate"><span class="pre">.connect</span></code> file.</p></li>
+<li><p>Remember that only the <strong>types</strong> for each parameter are given in their respective <code class="docutils literal notranslate"><span class="pre">.&lt;param&gt;coeffs</span></code> file.</p></li>
+<li><p>The only data which will not be included in CGenFF is the LJ pair coefficients and the coordinates themselves. You must obtain these via literature (LJ coeffs) and MOLDEN/Avogadro/other source (coordinates) respectively. For example, the coordinates for the TIP3P-FB water model are found <a class="reference external" href="https://github.com/pandegroup/tip3p-tip4p-fb/blob/master/Gromacs/tip3p-fb/tip3p-fb.gro">online</a>, and do not require MOLDEN/Avogadro to obtain.</p></li>
+<li><p>If you make a mistake after completing the <code class="docutils literal notranslate"><span class="pre">molec_generator</span></code> step, make sure to copy the new <code class="docutils literal notranslate"><span class="pre">molecule.py</span></code> file once the changes are made and add it to the path: <code class="docutils literal notranslate"><span class="pre">/path/to/My-Code-Collection/Util/general_system/molecules/</span></code> to update the reference.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>After the PACKMOL files have been created, you can make the <code class="docutils literal notranslate"><span class="pre">.inp</span></code> file to contain your system. If you plan to <a class="reference internal" href="#optimizing-the-structure-with-lammps"><span class="std std-ref">optimize with LAMMPS</span></a>, make the <code class="docutils literal notranslate"><span class="pre">.inp</span></code> file contain one molecule and ~20 Angstroms for the box length.</p></li>
+<li><p>Complete the <code class="docutils literal notranslate"><span class="pre">build.py</span> <span class="pre">&lt;</span> <span class="pre">filename.inp</span></code> step. <strong>Make sure the arrow is pointing toward</strong> <code class="docutils literal notranslate"><span class="pre">build.py</span></code>.</p></li>
+<li><p>You will receive a <code class="docutils literal notranslate"><span class="pre">data.lmps</span></code> file, several <code class="docutils literal notranslate"><span class="pre">lmps.</span></code> files, and some PACKMOL output stuff. I like to make a folder called <code class="docutils literal notranslate"><span class="pre">packmol_outputs</span></code> and put all of these (including the <code class="docutils literal notranslate"><span class="pre">.inp</span></code> file) within it so I do not accidentally edit/delete something.</p></li>
+</ol>
+</section>
+</section>
+<section id="optimizing-the-structure-with-lammps">
+<span id="id6"></span><h3>Optimizing the Structure with LAMMPS<a class="headerlink" href="#optimizing-the-structure-with-lammps" title="Link to this heading"></a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If you are using LAMMPS to optimize the geometry of the molecule, you are in the right section. If you used Avogadro or MOLDEN to optimize the geometry, this section can be ignored. Instead, skip to the <a class="reference internal" href="PACKMOL.html"><span class="doc"> PACKMOL</span></a> docs (or see the <a class="reference internal" href="#packmol-steps"><span class="std std-ref">brief summary</span></a>) for a tutorial on creating PACKMOL documents.</p>
+</div>
+<section id="lammps-steps">
+<span id="id7"></span><h4>LAMMPS Steps<a class="headerlink" href="#lammps-steps" title="Link to this heading"></a></h4>
+<ol class="arabic">
+<li><p>Create a LAMMPS minimization file (must start with <code class="docutils literal notranslate"><span class="pre">in.</span></code>). It is recommended you put this in its own directory, where all relevant LAMMPS things will be for the energy minimization step. The <a class="reference internal" href="#lammps-energy-minimization-header-example"><span class="std std-ref">heading</span></a>/<a class="reference internal" href="#lammps-energy-minimization-footer-example"><span class="std std-ref">footer</span></a> of the file is seen below. You can create an <code class="docutils literal notranslate"><span class="pre">in.energy_min</span></code> file and use <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">path/to/lmps.*</span> <span class="pre">&gt;&gt;</span> <span class="pre">in.energy_min</span></code> to add the relevant <code class="docutils literal notranslate"><span class="pre">lmps.</span></code> files to the LAMMPS input file.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Make sure to update any Urey-Bradley terms and the dihedral integer values during this step. If no Urey-Bradley terms are present, you can adjust the <code class="docutils literal notranslate"><span class="pre">angle_style</span></code> to <code class="docutils literal notranslate"><span class="pre">harmonic</span></code>. If you use Urey-Bradley terms for some angles, all non-Urey-Bradley angles can have coefficients of 0. See the <a class="reference internal" href="#lammps-energy-minimization-file-example"><span class="std std-ref">example</span></a> for a system containing some (but not all) Urey-Bradley angle coefficients.</p></li>
+<li><p>Dihedral integers <strong>must</strong> be changed from floating point (i.e. <code class="docutils literal notranslate"><span class="pre">1.0</span></code> becomes <code class="docutils literal notranslate"><span class="pre">1</span></code>) or else the simulation will not run. This is done <strong>by hand</strong> in the <code class="docutils literal notranslate"><span class="pre">data.lmps</span></code> file.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Copy the <code class="docutils literal notranslate"><span class="pre">data.lmps</span></code> file from <a class="reference internal" href="#packmol-steps"><span class="std std-ref">PACKMOL</span></a> to a directory where the LAMMPS minimization file is located.</p></li>
+<li><p>Create a energy minimization bash script. This can be seen <a class="reference internal" href="#lammps-energy-minimization-bash-script-example"><span class="std std-ref">below</span></a>.</p></li>
+<li><p>Run the script <code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">energy_min.sh</span></code> to start your energy minimization process.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Energy minimization should take less than 10 minutes to run. If your system takes more than 15 minutes, stop the simulation (<code class="docutils literal notranslate"><span class="pre">scancel</span> <span class="pre">JOBID</span></code>) and review the <code class="docutils literal notranslate"><span class="pre">log.lammps</span></code> file.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Each <code class="docutils literal notranslate"><span class="pre">lmps.</span></code> file will provide a header with the parameter type for LAMMPS. For example, <code class="docutils literal notranslate"><span class="pre">bond_style</span> <span class="pre">harmonic</span></code>. This can be removed from the LAMMPS file as the header already accounts for these types.</p>
+</div>
+</section>
+<section id="lammps-energy-minimization-header-example">
+<span id="id8"></span><h4>LAMMPS Energy Minimization Header Example<a class="headerlink" href="#lammps-energy-minimization-header-example" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">units</span>      <span class="n">real</span>
+<span class="n">atom_style</span>   <span class="n">full</span>
+
+<span class="n">boundary</span>    <span class="n">p</span> <span class="n">p</span> <span class="n">p</span>
+
+<span class="n">pair_style</span>   <span class="n">lj</span><span class="o">/</span><span class="n">charmm</span><span class="o">/</span><span class="n">coul</span><span class="o">/</span><span class="n">long</span> <span class="mi">10</span> <span class="mf">10.5</span>
+<span class="n">pair_modify</span>   <span class="n">mix</span> <span class="n">arithmetic</span>
+<span class="n">pair_modify</span>   <span class="n">tail</span> <span class="n">yes</span>
+<span class="n">kspace_style</span>  <span class="n">pppm</span> <span class="mf">1.0e-4</span>
+
+<span class="n">read_data</span>    <span class="n">data</span><span class="o">.</span><span class="n">FILENAME</span> <span class="c1"># name of data file goes here</span>
+
+<span class="n">bond_style</span>   <span class="n">harmonic</span>
+<span class="n">angle_style</span>   <span class="n">charmm</span> <span class="c1"># harmonic or charmm (Urey-Bradley terms)</span>
+<span class="n">dihedral_style</span> <span class="n">charmm</span>
+<span class="n">improper_style</span> <span class="n">harmonic</span>
+</pre></div>
+</div>
+</section>
+<section id="lammps-energy-minimization-footer-example">
+<span id="id9"></span><h4>LAMMPS Energy Minimization Footer Example<a class="headerlink" href="#lammps-energy-minimization-footer-example" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">neighbor</span>    <span class="mf">2.0</span> <span class="nb">bin</span>
+<span class="n">neigh_modify</span>  <span class="n">every</span> <span class="mi">1</span> <span class="n">delay</span> <span class="mi">0</span> <span class="n">check</span> <span class="n">yes</span>
+
+<span class="n">velocity</span>    <span class="nb">all</span> <span class="n">create</span> <span class="mf">298.15</span> <span class="mi">123456</span> <span class="n">dist</span> <span class="n">gaussian</span>
+
+<span class="n">thermo_style</span>  <span class="n">custom</span> <span class="n">step</span> <span class="n">time</span> <span class="n">temp</span> <span class="n">etotal</span> <span class="n">ke</span> <span class="n">evdwl</span> <span class="n">ecoul</span> <span class="n">elong</span> <span class="n">pe</span> <span class="n">ebond</span> <span class="n">eangle</span> <span class="n">edihed</span> <span class="n">eimp</span> <span class="n">vol</span> <span class="n">press</span> <span class="n">density</span>
+
+<span class="n">thermo</span>     <span class="mi">50</span>
+<span class="n">timestep</span>    <span class="mf">1.0</span>
+
+<span class="n">minimize</span>    <span class="mf">1.0e-4</span> <span class="mf">1.0e-6</span> <span class="mi">100000</span> <span class="mi">400000</span>
+
+<span class="n">write_data</span>  <span class="n">system_after_min</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+</section>
+<section id="lammps-energy-minimization-file-example">
+<span id="id10"></span><h4>LAMMPS Energy Minimization File Example<a class="headerlink" href="#lammps-energy-minimization-file-example" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">units</span>      <span class="n">real</span>
+<span class="n">atom_style</span>   <span class="n">full</span>
+
+<span class="n">boundary</span>    <span class="n">p</span> <span class="n">p</span> <span class="n">p</span>
+
+<span class="n">pair_style</span>   <span class="n">lj</span><span class="o">/</span><span class="n">charmm</span><span class="o">/</span><span class="n">coul</span><span class="o">/</span><span class="n">long</span> <span class="mi">10</span> <span class="mf">10.5</span>
+<span class="n">pair_modify</span>   <span class="n">mix</span> <span class="n">arithmetic</span>
+<span class="n">pair_modify</span>   <span class="n">tail</span> <span class="n">yes</span>
+<span class="n">kspace_style</span>  <span class="n">pppm</span> <span class="mf">1.0e-4</span>
+
+<span class="n">read_data</span>    <span class="n">data</span><span class="o">.</span><span class="n">methylurea</span>
+
+<span class="n">bond_style</span>   <span class="n">harmonic</span>
+<span class="n">angle_style</span>   <span class="n">charmm</span>
+<span class="n">dihedral_style</span> <span class="n">charmm</span>
+<span class="n">improper_style</span> <span class="n">harmonic</span>
+
+<span class="c1"># Angle Coeffs Methylurea</span>
+<span class="n">angle_coeff</span> <span class="mi">1</span>  <span class="mf">70.00000</span> <span class="mf">115.00000</span> <span class="mf">0.0</span> <span class="mf">0.0</span>
+<span class="n">angle_coeff</span> <span class="mi">2</span>  <span class="mf">60.00000</span> <span class="mf">125.70000</span> <span class="mf">0.0</span> <span class="mf">0.0</span>
+<span class="n">angle_coeff</span> <span class="mi">3</span>  <span class="mf">75.00000</span> <span class="mf">122.50000</span> <span class="mf">50.00</span> <span class="mf">2.37</span> <span class="c1"># Urey-Bradley terms</span>
+<span class="n">angle_coeff</span> <span class="mi">4</span>  <span class="mf">51.50000</span> <span class="mf">109.50000</span> <span class="mf">0.0</span> <span class="mf">0.0</span>
+<span class="n">angle_coeff</span> <span class="mi">5</span>  <span class="mf">35.50000</span> <span class="mf">108.40000</span> <span class="mf">5.40</span> <span class="mf">1.802</span> <span class="c1"># Urey-Bradley terms</span>
+<span class="n">angle_coeff</span> <span class="mi">6</span>  <span class="mf">60.00000</span> <span class="mf">120.00000</span> <span class="mf">0.0</span> <span class="mf">0.0</span>
+<span class="n">angle_coeff</span> <span class="mi">7</span>  <span class="mf">40.00000</span> <span class="mf">121.50000</span> <span class="mf">0.0</span> <span class="mf">0.0</span>
+<span class="n">angle_coeff</span> <span class="mi">8</span>  <span class="mf">35.00000</span> <span class="mf">117.00000</span> <span class="mf">0.0</span> <span class="mf">0.0</span>
+<span class="n">angle_coeff</span> <span class="mi">9</span>  <span class="mf">50.00000</span> <span class="mf">120.00000</span> <span class="mf">0.0</span> <span class="mf">0.0</span>
+<span class="n">angle_coeff</span> <span class="mi">10</span>  <span class="mf">23.00000</span> <span class="mf">120.00000</span> <span class="mf">0.0</span> <span class="mf">0.0</span>
+
+<span class="c1"># Bond Coeffs Methylurea</span>
+<span class="n">bond_coeff</span> <span class="mi">1</span>   <span class="mf">510.000</span>     <span class="mf">1.370</span>
+<span class="n">bond_coeff</span> <span class="mi">2</span>   <span class="mf">430.000</span>     <span class="mf">1.360</span>
+<span class="n">bond_coeff</span> <span class="mi">3</span>   <span class="mf">650.000</span>     <span class="mf">1.230</span>
+<span class="n">bond_coeff</span> <span class="mi">4</span>   <span class="mf">320.000</span>     <span class="mf">1.430</span>
+<span class="n">bond_coeff</span> <span class="mi">5</span>   <span class="mf">322.000</span>     <span class="mf">1.111</span>
+<span class="n">bond_coeff</span> <span class="mi">6</span>   <span class="mf">440.000</span>     <span class="mf">0.997</span>
+<span class="n">bond_coeff</span> <span class="mi">7</span>   <span class="mf">480.000</span>     <span class="mf">1.000</span>
+
+<span class="c1"># Dihedral Coeffs Methylurea</span>
+<span class="n">dihedral_coeff</span> <span class="mi">1</span>   <span class="mf">2.50000</span> <span class="mi">2</span> <span class="mi">180</span> <span class="mf">0.0</span> <span class="c1"># notice integer dihedral values</span>
+<span class="n">dihedral_coeff</span> <span class="mi">2</span>   <span class="mf">4.00000</span> <span class="mi">2</span> <span class="mi">180</span> <span class="mf">0.0</span>
+<span class="n">dihedral_coeff</span> <span class="mi">3</span>   <span class="mf">0.95000</span> <span class="mi">4</span> <span class="mi">0</span> <span class="mf">0.0</span>
+<span class="n">dihedral_coeff</span> <span class="mi">4</span>   <span class="mf">0.00000</span> <span class="mi">2</span> <span class="mi">180</span> <span class="mf">0.0</span>
+<span class="n">dihedral_coeff</span> <span class="mi">5</span>   <span class="mf">1.50000</span> <span class="mi">2</span> <span class="mi">180</span> <span class="mf">0.0</span>
+<span class="n">dihedral_coeff</span> <span class="mi">6</span>   <span class="mf">1.40000</span> <span class="mi">2</span> <span class="mi">180</span> <span class="mf">0.0</span>
+<span class="n">dihedral_coeff</span> <span class="mi">7</span>   <span class="mf">0.00000</span> <span class="mi">3</span> <span class="mi">0</span> <span class="mf">0.0</span>
+<span class="n">dihedral_coeff</span> <span class="mi">8</span>   <span class="mf">0.00000</span> <span class="mi">3</span> <span class="mi">0</span> <span class="mf">0.0</span>
+
+<span class="c1"># Improper Coeffs Methylurea</span>
+<span class="n">improper_coeff</span> <span class="mi">1</span>  <span class="mf">80.00000</span>   <span class="mf">0.00000</span>
+
+<span class="c1"># Pair Coeffs Methylurea</span>
+<span class="n">pair_coeff</span> <span class="mi">1</span> <span class="mi">1</span>   <span class="mf">0.07800</span>   <span class="mf">3.65270</span>
+<span class="n">pair_coeff</span> <span class="mi">2</span> <span class="mi">2</span>   <span class="mf">0.20000</span>   <span class="mf">3.29630</span>
+<span class="n">pair_coeff</span> <span class="mi">3</span> <span class="mi">3</span>   <span class="mf">0.07000</span>   <span class="mf">3.56360</span>
+<span class="n">pair_coeff</span> <span class="mi">4</span> <span class="mi">4</span>   <span class="mf">0.20000</span>   <span class="mf">3.29630</span>
+<span class="n">pair_coeff</span> <span class="mi">5</span> <span class="mi">5</span>   <span class="mf">0.12000</span>   <span class="mf">3.02910</span>
+<span class="n">pair_coeff</span> <span class="mi">6</span> <span class="mi">6</span>   <span class="mf">0.04600</span>   <span class="mf">0.40000</span>
+<span class="n">pair_coeff</span> <span class="mi">7</span> <span class="mi">7</span>   <span class="mf">0.02400</span>   <span class="mf">2.38760</span>
+
+<span class="n">neighbor</span>    <span class="mf">2.0</span> <span class="nb">bin</span>
+<span class="n">neigh_modify</span>  <span class="n">every</span> <span class="mi">1</span> <span class="n">delay</span> <span class="mi">0</span> <span class="n">check</span> <span class="n">yes</span>
+
+<span class="n">velocity</span>    <span class="nb">all</span> <span class="n">create</span> <span class="mf">298.15</span> <span class="mi">123456</span> <span class="n">dist</span> <span class="n">gaussian</span>
+
+<span class="n">thermo_style</span>  <span class="n">custom</span> <span class="n">step</span> <span class="n">time</span> <span class="n">temp</span> <span class="n">etotal</span> <span class="n">ke</span> <span class="n">evdwl</span> <span class="n">ecoul</span> <span class="n">elong</span> <span class="n">pe</span> <span class="n">ebond</span> <span class="n">eangle</span> <span class="n">edihed</span> <span class="n">eimp</span> <span class="n">vol</span> <span class="n">press</span> <span class="n">density</span>
+
+<span class="n">thermo</span>     <span class="mi">50</span>
+<span class="n">timestep</span>    <span class="mf">1.0</span>
+
+<span class="n">minimize</span>    <span class="mf">1.0e-4</span> <span class="mf">1.0e-6</span> <span class="mi">100000</span> <span class="mi">400000</span>
+
+<span class="n">write_data</span>  <span class="n">system_after_min</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+</section>
+<section id="lammps-energy-minimization-bash-script-example">
+<span id="id11"></span><h4>LAMMPS Energy Minimization Bash Script Example<a class="headerlink" href="#lammps-energy-minimization-bash-script-example" title="Link to this heading"></a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The bash script should end in <code class="docutils literal notranslate"><span class="pre">.sh</span></code> to be able to submit as a job.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/bin/bash
+#SBATCH --job-name=energy_min
+#SBATCH --partition=bigjay,thompson
+#SBATCH --constraint=ib
+#SBATCH --output=output.log
+#SBATCH --nodes=2
+#SBATCH --mem=6gb
+#SBATCH --ntasks-per-node=20
+#SBATCH --time=26:00:00
+
+module load lammps/29Aug2024
+
+echo Time is `date`
+echo Directory is `pwd`
+echo &quot;Running on $SLURM_JOB_NODELIST nodes using $SLURM_CPUS_ON_NODE cores on each node&quot;
+
+mpirun lmp_mpi -in in.energy_min -screen none
+
+cd ../
+echo Ending Time is `date`
+exit 0
+</pre></div>
+</div>
+</section>
+<section id="troubleshooting-energy-minimization">
+<span id="id12"></span><h4>Troubleshooting Energy Minimization<a class="headerlink" href="#troubleshooting-energy-minimization" title="Link to this heading"></a></h4>
+<p>If the energy minimization simulation fails, the <code class="docutils literal notranslate"><span class="pre">log.lammps</span></code> file and <code class="docutils literal notranslate"><span class="pre">output.log</span></code> files can provide key details for the simulation. Most errors can be accounted to an issue in the structure of the molecule. Two major troubleshooting methods are recommended to find issues within your system.</p>
+<ol class="arabic">
+<li><p>Remove the <code class="docutils literal notranslate"><span class="pre">-screen</span> <span class="pre">none</span></code> phrase from the <code class="docutils literal notranslate"><span class="pre">energy_min.sh</span></code> file. This will print all LAMMPS outputs to the <code class="docutils literal notranslate"><span class="pre">output.log</span></code> file during the simulation. If the <code class="docutils literal notranslate"><span class="pre">log.lammps</span></code> file only prints the LAMMPS version and no other lines, it is likely that the <code class="docutils literal notranslate"><span class="pre">output.log</span></code> file will print nothing. Once this phrase is removed, if the <code class="docutils literal notranslate"><span class="pre">output.log</span></code> file prints any <code class="docutils literal notranslate"><span class="pre">ABORT</span></code> messages, there is something wrong with your structure.</p></li>
+<li><p>Add the following lines to your <code class="docutils literal notranslate"><span class="pre">in.energy_min</span></code> file. These lines are to be added <strong>below</strong> the <code class="docutils literal notranslate"><span class="pre">timestep</span></code> line and <strong>before</strong> the <code class="docutils literal notranslate"><span class="pre">write_data</span></code> line.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">thermo_modify</span> <span class="n">lost</span> <span class="n">warn</span>
+<span class="n">dump</span> <span class="n">traj</span> <span class="nb">all</span> <span class="mi">50</span> <span class="n">traj</span><span class="o">.</span><span class="n">xyz</span>
+<span class="n">dump_modify</span> <span class="n">traj</span> <span class="n">element</span> <span class="c1"># list elements here in order for all atoms in the system, i.e. O H H for water.</span>
+</pre></div>
+</div>
+</li>
+<li><p>Attempt to rerun the simulation. The <code class="docutils literal notranslate"><span class="pre">traj.xyz</span></code> file will print out the atoms and their coordinates every 50 time steps. You can adjust this should the <code class="docutils literal notranslate"><span class="pre">traj.xyz</span></code> file not print any coordinates.</p></li>
+<li><p>If you print the elements of the atoms (<code class="docutils literal notranslate"><span class="pre">dump_modify</span></code>) you can then use <a class="reference internal" href="PyMOL.html"><span class="doc"> PyMOL</span></a> to visualize the structure by downloading the <code class="docutils literal notranslate"><span class="pre">traj.xyz</span></code> file to your desktop.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you do not list the elements and your <code class="docutils literal notranslate"><span class="pre">traj.xyz</span></code> file shows numbers for each atom, your structure will not display bonds correctly (i.e. they will be bound to everything and will look crazy). Make sure to edit these accordingly so PyMOL reads the atoms and automatically formats the bonds.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If your PyMOL simulation shows floating atoms which are not bound to anything: This is a direct implication that all bonds are not listed in the <code class="docutils literal notranslate"><span class="pre">.connect</span></code> file in PACKMOL. You <strong>must</strong> list <strong>all</strong> bonds in the <code class="docutils literal notranslate"><span class="pre">.connect</span></code> file.</p>
+</div>
+<ol class="arabic" start="5">
+<li><p>If your energy minimization is successful, a <code class="docutils literal notranslate"><span class="pre">system_after_min.data</span></code> file should be made. You will need to take the coordinates from this file to update the structure of the molecule. Below is an excerpt of the <code class="docutils literal notranslate"><span class="pre">.data</span></code> file.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Atoms</span> <span class="c1"># full</span>
+
+<span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="o">-</span><span class="mf">0.011</span> <span class="mf">4.637224824258854</span> <span class="mf">3.939505581798852</span> <span class="mf">2.720061084395536</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
+<span class="mi">2</span> <span class="mi">1</span> <span class="mi">2</span> <span class="o">-</span><span class="mf">0.342</span> <span class="mf">4.234156216717911</span> <span class="mf">4.221940890505587</span> <span class="mf">4.05802642237323</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
+<span class="mi">3</span> <span class="mi">1</span> <span class="mi">3</span> <span class="mf">0.226</span> <span class="mf">3.1658553620638044</span> <span class="mf">3.5190398618536536</span> <span class="mf">4.5548357700110875</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
+<span class="mi">5</span> <span class="mi">1</span> <span class="mi">5</span> <span class="o">-</span><span class="mf">0.487</span> <span class="mf">2.582610268034431</span> <span class="mf">2.677395841085764</span> <span class="mf">3.8647055934269243</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
+<span class="mi">8</span> <span class="mi">1</span> <span class="mi">6</span> <span class="mf">0.273</span> <span class="mf">4.75773122119284</span> <span class="mf">4.915999376212109</span> <span class="mf">4.548650471430572</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
+<span class="mi">9</span> <span class="mi">1</span> <span class="mi">7</span> <span class="mf">0.09</span> <span class="mf">5.505632660948109</span> <span class="mf">4.569436036834264</span> <span class="mf">2.4390591532339316</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
+<span class="mi">10</span> <span class="mi">1</span> <span class="mi">7</span> <span class="mf">0.09</span> <span class="mf">4.913210613313182</span> <span class="mf">2.8674205690506347</span> <span class="mf">2.6360109369635523</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
+<span class="mi">11</span> <span class="mi">1</span> <span class="mi">7</span> <span class="mf">0.09</span> <span class="mf">3.7921275781667827</span> <span class="mf">4.142204318594125</span> <span class="mf">2.0291791578934393</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
+<span class="mi">4</span> <span class="mi">1</span> <span class="mi">4</span> <span class="o">-</span><span class="mf">0.521</span> <span class="mf">2.7872392741492495</span> <span class="mf">3.8007105470089186</span> <span class="mf">5.845925212783197</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
+<span class="mi">6</span> <span class="mi">1</span> <span class="mi">6</span> <span class="mf">0.296</span> <span class="mf">3.260203074178855</span> <span class="mf">4.483148645078783</span> <span class="mf">6.405233040214911</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
+<span class="mi">7</span> <span class="mi">1</span> <span class="mi">6</span> <span class="mf">0.296</span> <span class="mf">2.011495906975985</span> <span class="mf">3.3125153319773095</span> <span class="mf">6.253272157273618</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</li>
+<li><p>Copy these lines and paste them into an arbitrary <code class="docutils literal notranslate"><span class="pre">.xyz</span></code> file. From this, the first, fifth, sixth, and seventh columns are used.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">11</span>
+
+<span class="mi">1</span>   <span class="mf">4.637224824258854</span> <span class="mf">3.939505581798852</span> <span class="mf">2.720061084395536</span>
+<span class="mi">2</span>   <span class="mf">4.234156216717911</span> <span class="mf">4.221940890505587</span> <span class="mf">4.05802642237323</span>
+<span class="mi">3</span>   <span class="mf">3.1658553620638044</span> <span class="mf">3.5190398618536536</span> <span class="mf">4.5548357700110875</span>
+<span class="mi">5</span>   <span class="mf">2.582610268034431</span> <span class="mf">2.677395841085764</span> <span class="mf">3.8647055934269243</span>
+<span class="mi">8</span>   <span class="mf">4.75773122119284</span> <span class="mf">4.915999376212109</span> <span class="mf">4.548650471430572</span>
+<span class="mi">9</span>   <span class="mf">5.505632660948109</span> <span class="mf">4.569436036834264</span> <span class="mf">2.4390591532339316</span>
+<span class="mi">10</span>  <span class="mf">4.913210613313182</span> <span class="mf">2.8674205690506347</span> <span class="mf">2.6360109369635523</span>
+<span class="mi">11</span>  <span class="mf">3.7921275781667827</span> <span class="mf">4.142204318594125</span> <span class="mf">2.0291791578934393</span>
+<span class="mi">4</span>   <span class="mf">2.7872392741492495</span> <span class="mf">3.8007105470089186</span> <span class="mf">5.845925212783197</span>
+<span class="mi">6</span>   <span class="mf">3.260203074178855</span> <span class="mf">4.483148645078783</span> <span class="mf">6.405233040214911</span>
+<span class="mi">7</span>   <span class="mf">2.011495906975985</span> <span class="mf">3.3125153319773095</span> <span class="mf">6.253272157273618</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>From these columns, you can update the coordinates for the atom which corresponds with the first column for each row accordingly.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notice that the first column is not in sequential order. Make sure the atom you are updating the coordinates of is the atom listed in the row of the new coordinates file (i.e. atom 1 is the first atom in the PACKMOL contents and should have its element label). You can visualize this by updating the numbers with each respective element and visualizing in PyMOL to make sure the structure is equivalent to the desired molecule.</p>
+</div>
+</section>
+<section id="importing-optimized-geometry-to-packmol">
+<span id="id13"></span><h4>Importing Optimized Geometry to PACKMOL<a class="headerlink" href="#importing-optimized-geometry-to-packmol" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>If you have successfully completed the LAMMPS energy minimization steps, you should obtain a file called <code class="docutils literal notranslate"><span class="pre">system_after_min.data</span></code>. This file contains the updated coordinates for the molecule now that its structure has been optimized. You can return to the PACKMOL input files and insert the new coordinates into the <code class="docutils literal notranslate"><span class="pre">.connect</span></code> file. Be mindful to update each atom accordingly as the order <strong>will</strong> be different.</p></li>
+<li><p>Remove the <code class="docutils literal notranslate"><span class="pre">molecule.py</span></code> file and all relevant build directories (<code class="docutils literal notranslate"><span class="pre">raspa/</span></code>, <code class="docutils literal notranslate"><span class="pre">tmp/</span></code>, and <code class="docutils literal notranslate"><span class="pre">connect/</span></code>).</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">molec_generator.py</span></code> to create an updated <code class="docutils literal notranslate"><span class="pre">molecule.py</span></code> file and copy it to the <code class="docutils literal notranslate"><span class="pre">path/to/My-Code-Collection/Util/general_system/molecules/</span></code> path.</p></li>
+<li><p>Make a new <code class="docutils literal notranslate"><span class="pre">.inp</span></code> file for a simulation containing a solvent and your molecule at a desired concentration.</p></li>
+<li><p>Enter <code class="docutils literal notranslate"><span class="pre">build.py</span> <span class="pre">&lt;</span> <span class="pre">molecule.inp</span></code> to build the data file. Use this <code class="docutils literal notranslate"><span class="pre">data.lmps</span></code> file to run whatever LAMMPS simulation you’d like. You can <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">lmps.*</span> <span class="pre">&gt;&gt;</span> <span class="pre">in.LAMMPS</span></code> to make all required files for the NpT, NVT, or NVE simulation that you plan to run.</p></li>
+<li><p>Congratulations! You have successfully created and optimized your molecule for LAMMPS application. You should now be able to run simulations with your molecule and obtain data.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="other-lammps-tips">
+<span id="id14"></span><h2>Other LAMMPS Tips<a class="headerlink" href="#other-lammps-tips" title="Link to this heading"></a></h2>
+<a class="reference internal image-reference" href="_images/sim.png"><img alt="_images/sim.png" class="align-right" src="_images/sim.png" style="height: 200px;" />
+</a>
+<p>If you are running LAMMPS simulations and have questions that are not readily available in the <a class="reference external" href="https://docs.lammps.org">docs</a>, here are some quick tips to make your simulations a success.</p>
+<ul>
+<li><p>SHAKE parameters are used for bonds involving hydrogens and fix their length/angle to prevent vibrations. For example, the <code class="docutils literal notranslate"><span class="pre">O-H</span></code> bonds on water are often used with SHAKE.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>TIP3P-FB already employs SHAKE on water bonds and angles, so they need not be mentioned in the SHAKE command line.</p></li>
+<li><p>SHAKE cannot be used for energy minimization as the entire point is to fluctuate the structure to reach an optimized state. It can, however, be used for NpT, NVT, and NVE simulations.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>For simulations with data editing, some time-saving recommendations:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Make sure your conda environment/python module is loaded (see <a class="reference internal" href="Cluster%20Commands.html"><span class="doc">Cluster Commands</span></a>) prior to running trajectories that have python calculations associated.</p></li>
+<li><p>Make a separate bash script for just the analysis code should you run the LAMMPS simulations but have issues with the analysis codes. For example, a bash script for the LAMMPS simulations (which runs the NVEs <strong>and</strong> calculates MSD) but a separate bash script just for the MSDs will save time should something change with the MSD script.</p></li>
+<li><p>Make a check script that runs through all files (NVE-specific) to make sure the simulations have been run successfully.</p></li>
+<li><p>Print both the solvent and solute <code class="docutils literal notranslate"><span class="pre">.xyz</span></code> files for analysis (even if you do not need one of them at the beginning) or print the entire system as an <code class="docutils literal notranslate"><span class="pre">.xyz</span></code> file. Directories can always be zipped later to conserve space!</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="MOLDEN.html" class="btn btn-neutral float-left" title="MOLDEN" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, University of Kansas.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,234 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cluster Commands &mdash; Thompson Group Reference Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+    <link rel="shortcut icon" href="_static/ku.png"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="PyMOL" href="PyMOL.html" />
+    <link rel="prev" title="Basic Terminal Commands" href="Basic%20Terminal%20Commands.html" />
+    <link href="_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/TG_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Joining%20the%20KU%20Community%20Cluster.html">Joining the KU Community Cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Basic%20Terminal%20Commands.html"> Basic Terminal Commands</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Cluster Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basic-commands">Basic Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modules-on-the-cluster">Modules on the Cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#editing-your-bash-profile">Editing Your .bash_profile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-alias-commands">Creating Alias Commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#when-off-the-cluster">When <strong>off</strong> the Cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#when-on-the-cluster">When <strong>on</strong> the Cluster</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="PyMOL.html"> PyMOL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PACKMOL.html"> PACKMOL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MOLDEN.html"> MOLDEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Developing%20Molecules%20for%20LAMMPS.html"> Developing Molecules for LAMMPS</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Thompson Group Reference Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Cluster Commands</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Cluster Commands.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cluster-commands">
+<h1>Cluster Commands<a class="headerlink" href="#cluster-commands" title="Link to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page is adapted from the group document, “Getting Access to the KU Community Cluster”, written by Dr. Ashley Borkowski.</p>
+</div>
+<p>While the commands for the terminal are still applicable for the Cluster, there exist unique commands (and clever devices) which are only accessable when you are online.</p>
+<section id="basic-commands">
+<span id="id1"></span><h2>Basic Commands<a class="headerlink" href="#basic-commands" title="Link to this heading"></a></h2>
+<p>Some of the most used commands for the cluster are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">name.sh</span></code> submits a job called “name” to the cluster. <code class="docutils literal notranslate"><span class="pre">.sh</span></code> files are known as SLURM scripts, and are what tells the cluster what job(s) to run.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">squeue</span> <span class="pre">-u</span> <span class="pre">KUID</span></code> shows what jobs you currently have running, where KUID is your KU Username.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scancel</span> <span class="pre">JOBID</span></code> cancels a job for the given JOBID. Job IDs are shown when a job is submitted, and when viewing the queue.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sshare</span></code> shows your FairShare score. The FairShare describes the priority of your jobs to ensure that the cluster is shared fairly amongst the KU community. As you submit more jobs, your weekly FairShare will decrease. This implies that the priority listing for submitted jobs will adjust accordingly. Therefore, someone who has a high FairShare score will have a much higher priority for submitted jobs to run.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">crctool</span></code> shows the storage available within your cluster profile, along with how much storage you have used specifically. If you use all the storage available, you will receive an automatic email from the cluster and will need to clear out space.</p></li>
+</ul>
+</section>
+<section id="modules-on-the-cluster">
+<span id="id2"></span><h2>Modules on the Cluster<a class="headerlink" href="#modules-on-the-cluster" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">avail</span></code> shows the available modules within the Cluster.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">purge</span></code> clears all the loaded modules within your current profile. Unless you load modules within your <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code> (more on this later), modules are not automatically loaded upon login.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">list</span></code> shows the loaded modules in your current profile.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">&lt;modulename&gt;</span></code> loads in the desired module (replace <code class="docutils literal notranslate"><span class="pre">&lt;modulename&gt;</span></code> with the module from the list, e.g. <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">grace</span></code>).</p></li>
+</ul>
+</section>
+<section id="editing-your-bash-profile">
+<span id="id3"></span><h2>Editing Your .bash_profile<a class="headerlink" href="#editing-your-bash-profile" title="Link to this heading"></a></h2>
+<ul>
+<li><p>Enter your <code class="docutils literal notranslate"><span class="pre">$HOME</span></code> directory (<code class="docutils literal notranslate"><span class="pre">cd</span></code>).</p></li>
+<li><p>Using <code class="docutils literal notranslate"><span class="pre">vi</span></code>, enter your <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code> (<code class="docutils literal notranslate"><span class="pre">vi</span> <span class="pre">.bash_profile</span></code>). Enter insert mode by pressing <code class="docutils literal notranslate"><span class="pre">i</span></code>.</p></li>
+<li><p>Type in the module load commands and specify what modules to load upon login.</p>
+<blockquote>
+<div><ul>
+<li><p>Recommended modules are (but not limited to):</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">grace</span></code> (plotting software, XMGrace)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">vmd</span></code> (Visual Molecular Dynamics, to visualize simulations)</p></li>
+<li><p>When you are finished adding modules, press ESC and type <code class="docutils literal notranslate"><span class="pre">:wq!</span></code>. This writes and saves the bash profile.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>It is recommended to load python via Conda environment within your <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code>. The steps are as follows:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Login to the Cluster.</p></li>
+<li><p>Within your <code class="docutils literal notranslate"><span class="pre">$HOME</span></code> directory, type the following commands: <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">conda</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span> <span class="pre">-n</span> <span class="pre">NAME</span> <span class="pre">python=VERSION</span></code> (current version is <code class="docutils literal notranslate"><span class="pre">python=3.11</span></code>. It is recommended you give the name something you will remember, such as <code class="docutils literal notranslate"><span class="pre">python3-11</span></code>).</p></li>
+<li><p>Enter your bash profile, <code class="docutils literal notranslate"><span class="pre">vi</span> <span class="pre">.bash_profile</span></code> and toggle insert mode with <code class="docutils literal notranslate"><span class="pre">i</span></code>.</p></li>
+<li><p>Within the module commands, type <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">conda</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">NAME</span></code></p></li>
+<li><p>Exit your bash profile by pressing ESC and typing <code class="docutils literal notranslate"><span class="pre">:wq!</span></code>.</p></li>
+<li><p>Make sure that you source your bash profile with the command <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">.bash_profile</span></code> before logging out. This will make sure to load and activate your conda environment for every time you enter the Cluster.</p></li>
+<li><p>To add packages to your python profile, type <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">PACKAGE</span></code>, where <code class="docutils literal notranslate"><span class="pre">PACKAGE</span></code> is the package of interest. For example, <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">numpy</span></code> adds numpy to your environment.</p></li>
+</ol>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Once modules are loaded and the bash profile is saved, you can source the profile with <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">.bash_profile</span></code> to save changes and allow for the commands to run each time you enter the Cluster.</p></li>
+</ul>
+</section>
+<section id="creating-alias-commands">
+<span id="id4"></span><h2>Creating Alias Commands<a class="headerlink" href="#creating-alias-commands" title="Link to this heading"></a></h2>
+<section id="when-off-the-cluster">
+<h3>When <strong>off</strong> the Cluster<a class="headerlink" href="#when-off-the-cluster" title="Link to this heading"></a></h3>
+<p>To add an alias on your home device (and <strong>not</strong> on the cluster), the following commands are used (Mac specific):</p>
+<ol class="arabic">
+<li><p>Open a terminal and enter your bash profile: <code class="docutils literal notranslate"><span class="pre">vi</span> <span class="pre">.bash_profile</span></code></p></li>
+<li><p>Enter insert mode (<code class="docutils literal notranslate"><span class="pre">i</span></code>) and enter the aliases you want for your terminal. It is recommended to have an alias for logging onto the cluster:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">alias</span> <span class="pre">*your</span> <span class="pre">initials</span> <span class="pre">here*=‘ssh</span> <span class="pre">-XY</span> <span class="pre">username&#64;hpc.crc.ku.edu’</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Press ESC and type <code class="docutils literal notranslate"><span class="pre">:wq!</span></code> to save your bash profile.</p></li>
+<li><p>Type <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">.bash_profile</span></code> to add the alias to your computer. Exit and reopen the terminal, and type in your alias. You should be prompted to enter your password and then connect to the cluster.</p></li>
+</ol>
+</section>
+<section id="when-on-the-cluster">
+<h3>When <strong>on</strong> the Cluster<a class="headerlink" href="#when-on-the-cluster" title="Link to this heading"></a></h3>
+<p>Aliases are located in the same <code class="docutils literal notranslate"><span class="pre">$HOME</span></code> directory bash profile as modules.</p>
+<ol class="arabic">
+<li><p>When you are editing your <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code>, the following commands are helpful:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">alias</span> <span class="pre">queue=‘squeue</span> <span class="pre">-u</span> <span class="pre">username’</span></code> (allows you to type <code class="docutils literal notranslate"><span class="pre">queue</span></code> to see what jobs you have submitted)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alias</span> <span class="pre">pgi=‘module</span> <span class="pre">load</span> <span class="pre">compiler/pgi/19’</span></code> (for running Fortran code)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alias</span> <span class="pre">pgi=‘module</span> <span class="pre">load</span> <span class="pre">compiler/gcc/8.3’</span></code> (to switch back to gcc for running XMGrace)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alias</span> <span class="pre">watch=‘watch</span> <span class="pre">-n</span> <span class="pre">5</span> <span class="pre">squeue</span> <span class="pre">-u</span> <span class="pre">username’</span></code> (allows you to type <code class="docutils literal notranslate"><span class="pre">watch</span></code> to watch the queue with 5 second updates to see when your jobs complete)</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you use the <code class="docutils literal notranslate"><span class="pre">watch</span></code> alias, make sure to open a new tab on your terminal and login to the cluster. When the <code class="docutils literal notranslate"><span class="pre">watch</span></code> command is used, that entire terminal tab is used solely for viewing the queue.</p>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Save and close the file (ESC + <code class="docutils literal notranslate"><span class="pre">:wq!</span></code> for vi users)</p></li>
+<li><p>Source the profile (<code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">.bash_profile</span></code>)</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Basic%20Terminal%20Commands.html" class="btn btn-neutral float-left" title="Basic Terminal Commands" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="PyMOL.html" class="btn btn-neutral float-right" title="PyMOL" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, University of Kansas.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
