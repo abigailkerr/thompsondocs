@@ -47,4 +47,5 @@ Other Helpful Commands
 
 * ``du -sh path/to/directory/`` displays the amount of memory associated to a directory.
 * ``scp KUID@login1.hpc.crc.ku.edu:path/to/file path/to/destination`` will download a file from the Cluster to your computer (where KUID is your KU Username). It is important to ``cd`` to the location you want the file to be downloaded to prior to downloading it from the Cluster itself.
+* ``stat path/to/file`` displays information including the size, creation date, and modify date for a file.
  
