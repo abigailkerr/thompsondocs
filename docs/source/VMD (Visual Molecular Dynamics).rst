@@ -45,7 +45,9 @@ If you do not set the box lengths for ``pbc set``, the box cannot be drawn. Once
 Recommended Links
 -------------------
 
-VMD ``pbc`` commands: http://www.ks.uiuc.edu/Research/vmd/plugins/pbctools/
-VMD Rendering Options (for images and movies): 
+* VMD ``pbc`` commands: http://www.ks.uiuc.edu/Research/vmd/plugins/pbctools/
+
+* VMD Rendering Options (for images and movies): 
+
    * https://rmhartkamp.github.io/Modules/VMDrender/vmdrender.pdf
    * https://www.ks.uiuc.edu/Research/vmd/vmd-1.9/ug/node43.html
