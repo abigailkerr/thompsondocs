@@ -3,7 +3,6 @@
 
 .. |ico0| image:: molden_images/vmd0.png
    :height: 2.5ex
-   :width: 2.5ex
    :target: https://www.ks.uiuc.edu/Research/vmd/
 
 .. _here:  https://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=VMD
