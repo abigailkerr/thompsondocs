@@ -18,6 +18,7 @@ Contents
    Basic Terminal Commands
    Cluster Commands
    PyMOL
+   VMD (Visual Molecular Dynamics)
    PACKMOL
    MOLDEN
    Developing Molecules for LAMMPS
