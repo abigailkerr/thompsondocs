@@ -31,6 +31,10 @@ To edit files, you can use either `vi`_, `emacs`_, or `VSCode`_. It is recommend
 .. _emacs: https://riptutorial.com/emacs
 .. _VSCode: https://code.visualstudio.com/download
 
+Using VSCode as a visual guide when navigating the cluster can be extremely helpful. You can download files without typing the entire command, edit files with added navigation and debugging assistance, as well as quickly access files to edit. Steps to implement VSCode for ssh use can be found `here`_.
+
+.. _here: https://code.visualstudio.com/docs/remote/ssh
+
 Copying and Removing
 ---------------------
 
