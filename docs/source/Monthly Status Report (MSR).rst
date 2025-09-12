@@ -1,7 +1,7 @@
 Monthly Status Report (MSR)
 #############################
 
-Each group member must submit a MSR *by the first of each month*.
+Each graduate student group member must submit a MSR *by the first of each month*.
 
 .. note::
   The contents of this page are adapted from the document "Monthly Status Report (MSR) written by Prof. Ward H. Thompson.
