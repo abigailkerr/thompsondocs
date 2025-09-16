@@ -437,7 +437,7 @@ If the energy minimization simulation fails, the ``log.lammps`` file and ``outpu
 .. note:: 
     If your PyMOL simulation shows floating atoms which are not bound to anything: This is a direct implication that all bonds are not listed in the ``.connect`` file in PACKMOL. You **must** list **all** bonds in the ``.connect`` file.
 
-5. If your energy minimization is successful, a ``system_after_min.data`` file should be made. You will need to take the coordinates from this file to update the structure of the molecule. Below is an excerpt of the ``.data`` file.::
+5. If your energy minimization is successful, a ``system_after_min.data`` file should be made. You will need to take the coordinates from this file to update the structure of the molecule. **Make sure that you update the coordinates in numerical order, according to the order you specified originally.** Below is an excerpt of the ``.data`` file.::
 
     Atoms # full
 
@@ -474,6 +474,10 @@ From these columns, you can update the coordinates for the atom which correspond
 .. note::
 
     Notice that the first column is not in sequential order. Make sure the atom you are updating the coordinates of is the atom listed in the row of the new coordinates file (i.e. atom 1 is the first atom in the PACKMOL contents and should have its element label). You can visualize this by updating the numbers with each respective element and visualizing in PyMOL to make sure the structure is equivalent to the desired molecule.
+
+.. important::
+   Updating the coordinates in PACKMOL **must** be done in **sequential order**. As shown in the example above, the order is not 1-11, and therefore needs to be listed as atoms 1-11 for the PACKMOL system. If this does not work, any attempted simulations will alert LAMMPS that you have atoms outside of bounds and the system will fail.
+
 
 
 .. _Importing Optimized Geometry to PACKMOL:
