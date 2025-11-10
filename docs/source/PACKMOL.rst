@@ -121,7 +121,11 @@ For example::
 	2 O1
 	3 H2 # for a water molecule
 
-The ``molecule.names`` file will use the names when creating the ``.xyz`` file. This is used for every atom present in the system and requires unique names for each atom.
+The ``molecule.names`` file will use the names when creating the ``.xyz`` file. This is used for every atom present in the system and requires **unique names** for each atom.
+
+.. important::
+
+      Molecule names should be discrete for each atom present. This means that atom names cannot be the same across types. For example, a system which contains multiple hydrogen atoms (say for example, two types: HGA3 and HGP1 from CHARMM FF Docs) would need to have labels that separate between all hydrogens and not just each type. Therefore, hydrogen HGA3 could be shown as HGA3_1, HGA3_2, ... with HGP1 labeled similarly. If this is not shown, the built ``.connect`` file will not display all bonds/angles/dihedrals correctly and the system will not run successfully.
 
 3. Create a ``molecule.paircoeffs`` file with the following contents::
 
