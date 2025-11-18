@@ -191,7 +191,7 @@ The ``molecule.names`` file will use the names when creating the ``.xyz`` file. 
 
 .. note::
 
-	You may experience an error during the :ref:` ``python molec_generator.py `` step <Running PACKMOL>` which shows another parameter for the impropers. This can be labeled as 0.0 unless otherwise listed in the force field data of the system.
+	You may experience an error during the :ref:`running PACKMOL step <Running PACKMOL>` which shows another parameter for the impropers. This can be labeled as 0.0 unless otherwise listed in the force field data of the system.
 
 .. _Running PACKMOL:
 
