@@ -19,6 +19,8 @@ Some of the most used commands for the cluster are:
 * ``scancel JOBID`` cancels a job for the given JOBID. Job IDs are shown when a job is submitted, and when viewing the queue. 
 * ``sshare`` shows your FairShare score. The FairShare describes the priority of your jobs to ensure that the cluster is shared fairly amongst the KU community. As you submit more jobs, your weekly FairShare will decrease. This implies that the priority listing for submitted jobs will adjust accordingly. Therefore, someone who has a high FairShare score will have a much higher priority for submitted jobs to run.
 * ``crctool`` shows the storage available within your cluster profile, along with how much storage you have used specifically. If you use all the storage available, you will receive an automatic email from the cluster and will need to clear out space. 
+* ``sacct`` shows a list of your recently completed/running jobs on the cluster, along with relevant data such as how many nodes were used and what partition was chosen. 
+* ``seff JOBID`` will provide the runtime and memory used along with efficiency for a specific job, provided its Job ID in the ``JOBID`` space. This can be extremely helpful when determining how much memory or time should be allocated for a job. Allocating too much memory for a job will waste resources for the time allocated; ``seff`` can help optimize jobs to resolve this issue.
 
 .. _Modules on the Cluster:
 
