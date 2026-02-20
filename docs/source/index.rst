@@ -1,5 +1,5 @@
-Thompson Group Reference Documentation (2025 Version)
-======================================================
+Thompson Group Reference Documentation
+=========================================
 
 About this manual and other important links
 --------------------------------------------
@@ -23,6 +23,7 @@ Contents
    MOLDEN
    Developing Molecules for LAMMPS
    Monthly Status Report (MSR)
+   Other Resources
    
 
 .. _links:
