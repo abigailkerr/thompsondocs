@@ -10,5 +10,5 @@
 Poster Templates and Examples
 ==============================
 
-:download:`PowerPoint for Poster Templates Download Link </_downloads/PosterTemplates_ThompsonGroup.pptx>`
+PowerPoint for Poster Templates Download Link :download:`PosterTemplates_ThompsonGroup.pptx </downloads/PosterTemplates_ThompsonGroup.pptx>`
 
