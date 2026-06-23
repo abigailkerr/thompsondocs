@@ -206,6 +206,10 @@ Example contents:
    # Temporary files
    *.tmp
 
+   #Entire directories
+   logs/
+   RESTART/
+
 Commit the ``.gitignore`` file:
 
 .. code:: bash
