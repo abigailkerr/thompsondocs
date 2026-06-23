@@ -19,6 +19,7 @@ Contents
    Cluster Commands
    PyMOL
    VMD (Visual Molecular Dynamics)
+   GitHub
    PACKMOL
    MOLDEN
    Developing Molecules for LAMMPS
