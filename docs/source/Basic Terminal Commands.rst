@@ -22,6 +22,18 @@ Entering and leaving directories (folders) is done with the ``cd`` command. You 
 * ``cd path/to/file`` will take you to some directory. For example, ``cd /home/KUID/work/`` will take you to your ``$WORK`` directory, where ``KUID`` is your KU Username (e.g. ``a123b456``).
 * ``cd ..`` returns to the previous directory.
 
+
+Efficient Typing in the Terminal
+----------------------------------
+
+With increased use of the terminal, speedy commands can save time and frustration. All example toggles are for Mac... Windows will have similar methods but can be found online.
+
+* ``CTRL + A`` will reset your terminal cursor to the first character in the prompt. Useful for uploading multiple files to the cluster with different names, instead of rewriting the whole ``scp file_name1 ...`` repeatedly for a list of unique ``file_name1, file_name2, ...``. 
+* ``CMD + R`` will clear the current terminal screen, leaving only the prompt line.
+* ``CMD + T`` will open a new terminal tab.
+* ``CMD + D`` will open a new terminal tab next to the current tab. This can be really nice for quick copy-paste procedures.
+* ``CTRL + U`` will clear the entire terminal prompt from whatever text may currently be typed.
+
 Editing Files
 --------------
 
