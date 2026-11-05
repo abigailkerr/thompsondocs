@@ -9,6 +9,10 @@
 Syncing a VS Code Remote SSH Workspace with GitHub
 ==================================================
 
+Note
+
+This page was written by Elizabeth (Elle) R. Bartlett.
+
 This guide assumes you are connected to a remote cluster using VS Code
 Remote SSH and want to synchronize files with a GitHub repository.
 
