@@ -52,8 +52,8 @@ Copying and Removing
 
 To copy or remove files/directories, ``cp`` and ``rm`` are used.
 
-* ``cp path/to/original path/to/copy`` will copy a file to a new path. The path to the copy is required (if you are copying to the same directory, you can simply just type the name of the new copied file instead).
-* ``cp -R path/to/original/ path/to/copy/`` will copy a directory to a new path. Similarly to the general ``cp`` command, a new location or name must be specified.
+* ``cp path/to/original path/to/copy`` will copy a file to a new path. The path to the copy is required (if you are copying to the same directory, you can simply just type the name of the new copied file instead). You could also paste the original file with its original name to the current directory by ``cp path/to/original .``.
+* ``cp -r path/to/original/ path/to/copy/`` will copy a directory to a new path. Similarly to the general ``cp`` command, a new location or name must be specified.
 * ``mv path/to/file path/to/destination`` moves the file of interest without copying its contents. 
 * ``rm path/to/file`` removes a single file. **This cannot be undone**. Once files are removed, the action is permanent. 
 * ``rm -rf path/to/file`` removes a directory **and its included contents**.  
