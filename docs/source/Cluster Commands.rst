@@ -38,7 +38,7 @@ Editing Your .bash_profile
 --------------------------- 
 
 * Enter your ``$HOME`` directory (``cd``).
-* Using ``vi``, enter your ``.bash_profile`` (``vi .bash_profile``). Enter insert mode by pressing ``i``. 
+* Using ``vi``, enter your ``.bash_profile`` (``vi ~/.bash_profile``). Enter insert mode by pressing ``i``. 
 * Type in the module load commands and specify what modules to load upon login.
 
 	* Recommended modules are (but not limited to):
@@ -59,7 +59,7 @@ Editing Your .bash_profile
 		8. Make sure that you source your bash profile with the command ``source .bash_profile`` before logging out. This will make sure to load and activate your conda environment for every time you enter the Cluster.
 		9. To add packages to your python profile, type ``conda install PACKAGE``, where ``PACKAGE`` is the package of interest. For example, ``conda install numpy`` adds numpy to your environment. 
 
-* Once modules are loaded and the bash profile is saved, you can source the profile with ``source .bash_profile`` to save changes and allow for the commands to run each time you enter the Cluster. 
+* Once modules are loaded and the bash profile is saved, you can source the profile with ``source ~/.bash_profile`` to save changes and allow for the commands to run each time you enter the Cluster. 
 
 .. _Creating Alias Commands:
 
@@ -71,13 +71,13 @@ When **off** the Cluster
 
 To add an alias on your home device (and **not** on the cluster), the following commands are used (Mac specific):
 
-1. Open a terminal and enter your bash profile: ``vi .bash_profile``
+1. Open a terminal and enter your bash profile: ``vi ~/.bash_profile``
 2. Enter insert mode (``i``) and enter the aliases you want for your terminal. It is recommended to have an alias for logging onto the cluster:
 
 	* ``alias *your initials here*=‘ssh -XY username@hpc.crc.ku.edu’``
 
 3. Press ESC and type ``:wq!`` to save your bash profile. 
-4. Type ``source .bash_profile`` to add the alias to your computer. Exit and reopen the terminal, and type in your alias. You should be prompted to enter your password and then connect to the cluster.
+4. Type ``source ~/.bash_profile`` to add the alias to your computer. Exit and reopen the terminal, and type in your alias. You should be prompted to enter your password and then connect to the cluster.
 
 When **on** the Cluster
 ``````````````````````````
@@ -95,4 +95,4 @@ Aliases are located in the same ``$HOME`` directory bash profile as modules.
 	If you use the ``watch`` alias, make sure to open a new tab on your terminal and login to the cluster. When the ``watch`` command is used, that entire terminal tab is used solely for viewing the queue.
 
 2. Save and close the file (ESC + ``:wq!`` for vi users)
-3. Source the profile (``source .bash_profile``) 
+3. Source the profile (``source ~/.bash_profile``) 
