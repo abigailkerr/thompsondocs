@@ -96,3 +96,14 @@ Aliases are located in the same ``$HOME`` directory bash profile as modules.
 
 2. Save and close the file (ESC + ``:wq!`` for vi users)
 3. Source the profile (``source ~/.bash_profile``) 
+
+.. _Creating a Python Environment:
+
+Python cannot be run directly unless it is activated through a conda environment. Prior to submitting any SLURM scripts for Python codes, the following steps must be completed.
+
+1. Begin with loading the module, ``module load conda``.
+2. Enter the following command, where 'name' can be whatever you wish to title your conda environment. For example, python3-11 could be used to name the conda environment based on Python version 3.11.0: ``conda create -n name``. 
+3. Conda will prompt you to activate the environment, ``conda activate name``. You will need to load conda and activate the environment for any time you plan to run Python scripts on the cluster. You can check if you have activated the environment, which should be displayed in parenthesis before your KUID in the terminal prompt. For example: ``(python3-11) [a123b456@login1 ~]`` would imply you have activated the conda environment named ``python3-11``. 
+4. Adding Python packages to your conda environment is done as follows: ``conda install <package_name>``. For example, ``conda install numpy`` will automatically install NumPy to your current activated conda environment. 
+
+You can set up an automatic procedure for loading and activating your desired conda environment (or any other modules) automatically via your `` vi ~/.bash_profile``. Make sure to ``source ~/.bash_profile`` after any edits to preserve the updates. A short example of what could be included to automatically load and activate conda in a ``.bash_profile``: see ``cp /kuhpc/work/bigjay/a122k651/Cluster_Tutorial/.bash_profile_ex .``. This will copy an example bash profile to your current directory for viewing. 
