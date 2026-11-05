@@ -97,7 +97,10 @@ Aliases are located in the same ``$HOME`` directory bash profile as modules.
 2. Save and close the file (ESC + ``:wq!`` for vi users)
 3. Source the profile (``source ~/.bash_profile``) 
 
-.. _Creating a Python Environment:
+.. _Creating a Python Conda Environment:
+
+Creating a Python Conda Environment
+------------------------------------
 
 Python cannot be run directly unless it is activated through a conda environment. Prior to submitting any SLURM scripts for Python codes, the following steps must be completed.
 
