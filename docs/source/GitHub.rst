@@ -9,7 +9,7 @@
 Syncing a VS Code Remote SSH Workspace with GitHub
 ==================================================
 
-Note
+.. note::
 
 This page was written by Elizabeth (Elle) R. Bartlett.
 
