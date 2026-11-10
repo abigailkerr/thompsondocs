@@ -51,15 +51,15 @@ Editing Your .bash_profile
 
 		1. Login to the Cluster. 
 		2. Within your ``$HOME`` directory, type the following commands: ``module load conda``
-		3. ``conda create -n NAME python=VERSION`` (current version is ``python=3.11``. It is recommended you give the name something you will remember, such as ``python3-11``).
-		4. Enter your bash profile, ``vi .bash_profile`` and toggle insert mode with ``i``.
-		5. Within the module commands, type ``module load conda``.
-		6. ``conda activate NAME``
+		3. ``conda create -n NAME python=VERSION`` (You do not need to add the python=VERSION argument if you would prefer the most recent Python version. It is recommended you give the name something you will remember, such as ``python3-11``) For example, ``conda create -n python3-11 python=3.11``.
+		4. Enter your bash profile, ``vi ~/.bash_profile`` and toggle insert mode with ``i``.
+		5. Within the module commands, type ``module load conda``. Press enter.
+		6. Type ``conda activate NAME``.
 		7. Exit your bash profile by pressing ESC and typing ``:wq!``. 
-		8. Make sure that you source your bash profile with the command ``source .bash_profile`` before logging out. This will make sure to load and activate your conda environment for every time you enter the Cluster.
-		9. To add packages to your python profile, type ``conda install PACKAGE``, where ``PACKAGE`` is the package of interest. For example, ``conda install numpy`` adds numpy to your environment. 
+		8. Make sure that you source your bash profile with the command ``source ~/.bash_profile`` before logging out. This will make sure to load and activate your conda environment for every time you enter the Cluster.
+		9. To add packages to your python profile, type ``conda install PACKAGE``, where ``PACKAGE`` is the package of interest. For example, ``conda install numpy`` adds numpy to your environment. Make sure to have your conda environment activated before you attempt to add packages.
 
-* Once modules are loaded and the bash profile is saved, you can source the profile with ``source ~/.bash_profile`` to save changes and allow for the commands to run each time you enter the Cluster. 
+* Once modules are loaded and the bash profile is saved, you can source the profile with ``source ~/.bash_profile`` to save changes and allow for the commands to run each time you enter the Cluster. In order to see the updates applied, you will need to log out and log back into the cluster (``exit`` will log you out, or just by closing the terminal).
 
 .. _Creating Alias Commands:
 
@@ -96,17 +96,3 @@ Aliases are located in the same ``$HOME`` directory bash profile as modules.
 
 2. Save and close the file (ESC + ``:wq!`` for vi users)
 3. Source the profile (``source ~/.bash_profile``) 
-
-.. _Creating a Python Conda Environment:
-
-Creating a Python Conda Environment
-------------------------------------
-
-Python cannot be run directly unless it is activated through a conda environment. Prior to submitting any SLURM scripts for Python codes, the following steps must be completed.
-
-1. Begin with loading the module, ``module load conda``.
-2. Enter the following command, where 'name' can be whatever you wish to title your conda environment. For example, python3-11 could be used to name the conda environment based on Python version 3.11.0: ``conda create -n name``. 
-3. Conda will prompt you to activate the environment, ``conda activate name``. You will need to load conda and activate the environment for any time you plan to run Python scripts on the cluster. You can check if you have activated the environment, which should be displayed in parenthesis before your KUID in the terminal prompt. For example: ``(python3-11) [a123b456@login1 ~]`` would imply you have activated the conda environment named ``python3-11``. 
-4. Adding Python packages to your conda environment is done as follows: ``conda install <package_name>``. For example, ``conda install numpy`` will automatically install NumPy to your current activated conda environment. 
-
-You can set up an automatic procedure for loading and activating your desired conda environment (or any other modules) automatically via your ``vi ~/.bash_profile``. Make sure to ``source ~/.bash_profile`` after any edits to preserve the updates. A short example of what could be included to automatically load and activate conda in a ``.bash_profile``: see ``cp /kuhpc/work/bigjay/a122k651/Cluster_Tutorial/bash_profile_ex .``. This will copy an example bash profile to your current directory for viewing. 
