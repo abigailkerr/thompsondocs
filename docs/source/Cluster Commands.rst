@@ -47,7 +47,7 @@ Editing Your .bash_profile
 		* ``module load vmd`` (Visual Molecular Dynamics, to visualize simulations)
 		* When you are finished adding modules, press ESC and type ``:wq!``. This writes and saves the bash profile.
 
-.. note:
+.. note::
 
 	Once modules are loaded and the bash profile is saved, you can source the profile with ``source ~/.bash_profile`` to save changes and allow for the commands to run each time you enter the Cluster. In order to see the updates applied, you will need to log out and log back into the cluster (``exit`` will log you out, or just by closing the terminal).
 
@@ -68,7 +68,7 @@ It is recommended to load python via Conda environment within your ``.bash_profi
 	8. Make sure that you source your bash profile with the command ``source ~/.bash_profile`` before logging out. This will make sure to load and activate your conda environment for every time you enter the Cluster.
 	9. To add packages to your python profile, type ``conda install PACKAGE``, where ``PACKAGE`` is the package of interest. For example, ``conda install numpy`` adds numpy to your environment. Make sure to have your conda environment activated before you attempt to add packages.
 
-.. note:
+.. note::
 
 	Once modules are loaded and the bash profile is saved, you can source the profile with ``source ~/.bash_profile`` to save changes and allow for the commands to run each time you enter the Cluster. In order to see the updates applied, you will need to log out and log back into the cluster (``exit`` will log you out, or just by closing the terminal).
 
