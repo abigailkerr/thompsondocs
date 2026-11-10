@@ -47,19 +47,30 @@ Editing Your .bash_profile
 		* ``module load vmd`` (Visual Molecular Dynamics, to visualize simulations)
 		* When you are finished adding modules, press ESC and type ``:wq!``. This writes and saves the bash profile.
 
-	* It is recommended to load python via Conda environment within your ``.bash_profile``. The steps are as follows:
+.. note:
 
-		1. Login to the Cluster. 
-		2. Within your ``$HOME`` directory, type the following commands: ``module load conda``
-		3. ``conda create -n NAME python=VERSION`` (You do not need to add the python=VERSION argument if you would prefer the most recent Python version. It is recommended you give the name something you will remember, such as ``python3-11``) For example, ``conda create -n python3-11 python=3.11``.
-		4. Enter your bash profile, ``vi ~/.bash_profile`` and toggle insert mode with ``i``.
-		5. Within the module commands, type ``module load conda``. Press enter.
-		6. Type ``conda activate NAME``.
-		7. Exit your bash profile by pressing ESC and typing ``:wq!``. 
-		8. Make sure that you source your bash profile with the command ``source ~/.bash_profile`` before logging out. This will make sure to load and activate your conda environment for every time you enter the Cluster.
-		9. To add packages to your python profile, type ``conda install PACKAGE``, where ``PACKAGE`` is the package of interest. For example, ``conda install numpy`` adds numpy to your environment. Make sure to have your conda environment activated before you attempt to add packages.
+	Once modules are loaded and the bash profile is saved, you can source the profile with ``source ~/.bash_profile`` to save changes and allow for the commands to run each time you enter the Cluster. In order to see the updates applied, you will need to log out and log back into the cluster (``exit`` will log you out, or just by closing the terminal).
 
-* Once modules are loaded and the bash profile is saved, you can source the profile with ``source ~/.bash_profile`` to save changes and allow for the commands to run each time you enter the Cluster. In order to see the updates applied, you will need to log out and log back into the cluster (``exit`` will log you out, or just by closing the terminal).
+.. _Creating Conda Environments:
+
+Creating Conda Environments
+---------------------------- 
+
+It is recommended to load python via Conda environment within your ``.bash_profile``. The steps are as follows:
+
+	1. Login to the Cluster. 
+	2. Within your ``$HOME`` directory, type the following commands: ``module load conda``
+	3. ``conda create -n NAME python=VERSION`` (You do not need to add the python=VERSION argument if you would prefer the most recent Python version. It is recommended you give the name something you will remember, such as ``python3-11``) For example, ``conda create -n python3-11 python=3.11``.
+	4. Enter your bash profile, ``vi ~/.bash_profile`` and toggle insert mode with ``i``.
+	5. Within the module commands, type ``module load conda``. Press enter.
+	6. Type ``conda activate NAME``.
+	7. Exit your bash profile by pressing ESC and typing ``:wq!``. 
+	8. Make sure that you source your bash profile with the command ``source ~/.bash_profile`` before logging out. This will make sure to load and activate your conda environment for every time you enter the Cluster.
+	9. To add packages to your python profile, type ``conda install PACKAGE``, where ``PACKAGE`` is the package of interest. For example, ``conda install numpy`` adds numpy to your environment. Make sure to have your conda environment activated before you attempt to add packages.
+
+.. note:
+
+	Once modules are loaded and the bash profile is saved, you can source the profile with ``source ~/.bash_profile`` to save changes and allow for the commands to run each time you enter the Cluster. In order to see the updates applied, you will need to log out and log back into the cluster (``exit`` will log you out, or just by closing the terminal).
 
 .. _Creating Alias Commands:
 
