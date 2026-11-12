@@ -349,7 +349,7 @@ Methylurea Model
 .. _CGenFF: https://cgenff.com/
 
 The methylurea model was developed via `CGenFF`_ from its structure obtained at https://pubchem.ncbi.nlm.nih.gov/compound/Methylurea. The structure is associated from the identifying atom labels given from the CHARMM force field data from CGenFF, which can be seen in the structure below. For details on its development into PACKMOL, see the section :doc:`Developing Molecules for LAMMPS`. 
-The files shown in the methylurea model are listed (see contents at ``kuhpc/thompson/work/a122k651/packmol/energy_mins/methylurea/starterfiles_methylurea``):
+The files shown in the methylurea model are listed (see contents at ``/kuhpc/work/thompson/a122k651/packmol/energy_mins/methylurea/packmol_inputs/``):
 
 .. image:: methylurea.png
    :width: 400px
