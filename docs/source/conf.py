@@ -7,7 +7,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'Thompson Group Reference Documentation'
-copyright = '2025, University of Kansas'
+copyright = '2026, University of Kansas'
 author = 'Abigail L. Kerr, Ward H. Thompson'
 version = '1.0'
 
