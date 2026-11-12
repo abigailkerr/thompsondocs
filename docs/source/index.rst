@@ -44,7 +44,7 @@ Other Important Links
 
 .. note::
 
-   This project is under active development.
+   This project is under active development. Please send any suggested additions to the tutorial doc to Abbey (abigail.kerr@ku.edu).
 
 .. toctree::
    :maxdepth: 2
